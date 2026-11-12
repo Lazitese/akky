@@ -28,6 +28,7 @@ import {
   ModernSplitDonutChart, 
   ModernRankedProgressList 
 } from '../charts/ModernSaasCharts';
+import { ChartAreaInteractive } from '../charts/ChartAreaInteractive';
 
 interface SubcitySuperAdminDashboardProps {
   currentUser: User;
@@ -569,6 +570,9 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                 )}
               </div>
             </div>
+
+            {/* Interactive Area Chart */}
+            <ChartAreaInteractive />
           </div>
 
           {/* Recent Uploads List: Modern SaaS Table */}
