@@ -94,7 +94,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
           {/* QR Code Container */}
           <div className="w-48 h-48 mx-auto p-2 border-2 border-black bg-white flex items-center justify-center mb-3">
             {qrDataUrl ? (
-              <img src={qrDataUrl} alt="QR Code" className="w-full h-full object-contain" />
+              <img src={qrDataUrl} alt="የQR ኮድ" className="w-full h-full object-contain" />
             ) : (
               <div className="text-xs text-neutral-400">QR በማመንጨት ላይ...</div>
             )}

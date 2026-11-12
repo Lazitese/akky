@@ -337,7 +337,7 @@ export const FileBoxGrid: React.FC<FileBoxGridProps> = ({
           </div>
 
           <div className="text-xs font-bold text-neutral-700">
-            በቦክሱ ውስጥ ያሉ 5ቱ ንዑስ አቃፊዎች (Folders)፦
+            በቦክሱ ውስጥ ያሉ 5ቱ ንዑስ አቃፊዎች፦
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">

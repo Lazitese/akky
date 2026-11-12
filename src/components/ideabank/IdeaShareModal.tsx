@@ -149,7 +149,7 @@ export const IdeaShareModal: React.FC<IdeaShareModalProps> = ({
           {/* Summary */}
           <div>
             <label className="block font-bold text-black mb-1">
-              አጭር ማጠቃለያ (Executive Summary) <span className="text-red-600">*</span>
+              አጭር ማጠቃለያ <span className="text-red-600">*</span>
             </label>
             <textarea
               required
@@ -175,14 +175,14 @@ export const IdeaShareModal: React.FC<IdeaShareModalProps> = ({
               className="w-full p-2.5 border border-black focus:ring-1 focus:ring-black focus:outline-hidden font-sans leading-relaxed"
             />
             <p className="text-[10px] text-neutral-500 mt-1">
-              ምክር፦ አንቀጾችን ለመለየት ክፍት መስመር (Enter) ይጠቀሙ።
+              ምክር፦ አንቀጾችን ለመለየት ክፍት መስመር ይጠቀሙ።
             </p>
           </div>
 
           {/* Optional Document Attachment */}
           <div className="p-3 border border-dashed border-black bg-neutral-50">
             <label className="block font-bold text-black mb-1">
-              ተያያዥ ሙሉ ሰነድ (Optional Attachment - PDF/DOC/PPT)
+              ተያያዥ ሙሉ ሰነድ (አማራጭ)
             </label>
             <div className="flex items-center gap-3">
               <label className="px-3 py-1.5 border border-black bg-white hover:bg-neutral-200 cursor-pointer font-bold inline-flex items-center gap-1.5">

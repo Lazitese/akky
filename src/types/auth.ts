@@ -22,7 +22,7 @@ export const PRESET_USERS: User[] = [
     name: 'ዶ/ር አለሙ በቀለ',
     username: 'superadmin',
     role: 'SUBCITY_SUPER_ADMIN',
-    roleTitleAmharic: 'የክ/ከተማ ዋና አስተዳዳሪ (Super Admin)',
+    roleTitleAmharic: 'የክ/ከተማ ዋና አስተዳዳሪ',
   },
   {
     id: 'usr-2',

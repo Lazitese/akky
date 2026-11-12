@@ -56,7 +56,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const menuItems = [
     {
       id: 'dms',
-      label: 'የሰነድ ማህደር (DMS)',
+      label: 'የሰነድ ማህደር',
       icon: FolderArchive,
       active: true,
       badge: `${docCount}`,
@@ -70,14 +70,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
     },
     {
       id: 'ideabank',
-      label: 'የሀሳብ ባንክ (የፅሁፍ ባንክ)',
+      label: 'የእውቀትና ሀሳብ ባንክ',
       icon: BookOpen,
       active: true,
       badge: `${ideaCount}`,
     },
     {
       id: 'elibrary',
-      label: 'ዲጂታል ቤተ-መፅሀፍት (E-Library)',
+      label: 'ዲጂታል ቤተ-መጽሐፍት',
       icon: GraduationCap,
       active: true,
       badge: `${libraryCount}`,
@@ -159,13 +159,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 className="w-10 h-10 object-contain rounded-full shadow-sm border border-slate-200 shrink-0 bg-white"
               />
               <div>
-                <h1 className="font-extrabold text-xs sm:text-sm tracking-tight leading-tight text-slate-900">
+                <h1 className="font-bold text-xs sm:text-sm tracking-tight leading-tight text-slate-900">
                   አቃቂ ቃሊቲ ቅርንጫፍ
                 </h1>
-                <p className="text-[10.5px] text-[#22177a] font-bold mt-0.5 flex items-center gap-1">
-                  <span>ብልፅግና ፓርቲ</span>
-                  <span className="w-1 h-1 rounded-full bg-amber-400"></span>
-                  <span className="text-slate-400 font-medium">Prosperity</span>
+                <p className="text-[11px] text-[#22177a] font-bold mt-0.5">
+                  ብልፅግና ፓርቲ
                 </p>
               </div>
             </div>
@@ -185,7 +183,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
                 የአሁኑ መለያ፦
               </span>
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
             </div>
             <div className="font-bold text-xs text-slate-900 truncate">
               {currentUser.name}
@@ -218,9 +216,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       onClose();
                     }
                   }}
-                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-all ${
+                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors ${
                     isSelected
-                      ? 'bg-gradient-to-r from-[#22177a] to-[#2f1b8a] text-white shadow-md shadow-[#22177a]/20 scale-[1.01]'
+                      ? 'bg-[#22177a] text-white shadow-sm'
                       : item.active
                       ? 'text-slate-700 hover:bg-slate-100/90 hover:text-slate-900'
                       : 'text-slate-400 cursor-not-allowed opacity-50'
@@ -265,10 +263,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
           <button
             onClick={onLogout}
-            className="w-full py-2 px-3 rounded-xl border border-slate-200 bg-white hover:bg-rose-50 hover:text-rose-700 hover:border-rose-200 text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-xs"
+            className="w-full py-2 px-3 rounded-xl border border-slate-200 bg-white hover:bg-rose-50 hover:text-rose-700 hover:border-rose-200 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow-xs"
           >
             <LogOut className="w-3.5 h-3.5" />
-            <span>ከሲስተሙ ውጣ (Logout)</span>
+            <span>ከመለያው ውጣ</span>
           </button>
         </div>
       </aside>

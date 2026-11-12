@@ -23,7 +23,7 @@ export const RoleSwitcherModal: React.FC<RoleSwitcherModalProps> = ({
         <div className="flex items-center justify-between border-b-2 border-black pb-2">
           <div className="flex items-center gap-1.5 text-xs font-bold text-black">
             <UserCheck className="w-4 h-4" />
-            <span>የተጠቃሚ ሚና ቀይር (Switch Role)</span>
+            <span>የተጠቃሚ ሚና ቀይር</span>
           </div>
           <button
             onClick={onClose}

@@ -86,7 +86,7 @@ export const ELibraryUploadModal: React.FC<ELibraryUploadModalProps> = ({
                 አዲስ የላይብራሪ ሰነድ / ሚዲያ መዝግብ
               </h2>
               <p className="text-[11px] text-neutral-400">
-                ዲጂታል ቤተ-መፅሀፍትና ኢ-ላይብራሪ (E-Library Resource Ingestion)
+                ዲጂታል ቤተ-መጽሐፍት ሰነድ መመዝገቢያ
               </p>
             </div>
           </div>
@@ -121,7 +121,7 @@ export const ELibraryUploadModal: React.FC<ELibraryUploadModalProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-bold text-black mb-1">
-                የላይብራሪ ምድብ (Category) <span className="text-red-600">*</span>
+                የቤተ-መጽሐፍት ምድብ <span className="text-red-600">*</span>
               </label>
               <select
                 value={category}
@@ -145,18 +145,18 @@ export const ELibraryUploadModal: React.FC<ELibraryUploadModalProps> = ({
 
             <div>
               <label className="block font-bold text-black mb-1">
-                የሚዲያ አይነት (Media Type) <span className="text-red-600">*</span>
+                የሚዲያ አይነት <span className="text-red-600">*</span>
               </label>
               <select
                 value={mediaType}
                 onChange={(e) => setMediaType(e.target.value as MediaType)}
                 className="w-full p-2.5 border border-black bg-white focus:ring-1 focus:ring-black focus:outline-hidden font-medium"
               >
-                <option value="pdf">ፒዲኤፍ (PDF Document)</option>
-                <option value="document">ዎርድ / ሰነድ (Word Document)</option>
-                <option value="video">ቪዲዮ (Video File)</option>
-                <option value="audio">ድምፅ / ፖድካስት (Audio/Podcast)</option>
-                <option value="image">ምስል / ፎቶ አልበም (Photo Album)</option>
+                <option value="pdf">ፒዲኤፍ ሰነድ</option>
+                <option value="document">ዎርድ ሰነድ</option>
+                <option value="video">ቪዲዮ</option>
+                <option value="audio">ድምፅ / ኦዲዮ</option>
+                <option value="image">ምስል / ፎቶ አልበም</option>
               </select>
             </div>
           </div>
@@ -178,7 +178,7 @@ export const ELibraryUploadModal: React.FC<ELibraryUploadModalProps> = ({
           {/* Description */}
           <div>
             <label className="block font-bold text-black mb-1">
-              አጭር ማብራሪያ (Description) <span className="text-red-600">*</span>
+              አጭር ማብራሪያ <span className="text-red-600">*</span>
             </label>
             <textarea
               required
@@ -193,7 +193,7 @@ export const ELibraryUploadModal: React.FC<ELibraryUploadModalProps> = ({
           {/* File Picker */}
           <div className="p-3 border border-dashed border-black bg-neutral-50">
             <label className="block font-bold text-black mb-1">
-              የፋይል መስቀያ (Upload File)
+              የፋይል መጫኛ
             </label>
             <div className="flex items-center gap-3">
               <label className="px-3 py-1.5 border border-black bg-white hover:bg-neutral-200 cursor-pointer font-bold inline-flex items-center gap-1.5">

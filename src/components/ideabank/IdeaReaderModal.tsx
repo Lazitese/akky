@@ -165,7 +165,7 @@ export const IdeaReaderModal: React.FC<IdeaReaderModalProps> = ({
           {/* Abstract / Summary Callout */}
           <div className="p-4 bg-neutral-50 border-l-4 border-black border-y border-r border-neutral-300">
             <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-600 mb-1">
-              አጭር ማጠቃለያ (Executive Summary)፦
+              አጭር ማጠቃለያ፦
             </div>
             <p className="text-sm font-medium text-neutral-900 leading-relaxed italic">
               «{idea.summary}»

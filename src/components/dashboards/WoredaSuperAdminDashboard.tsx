@@ -48,47 +48,38 @@ export const WoredaSuperAdminDashboard: React.FC<WoredaSuperAdminDashboardProps>
     <div className="space-y-4">
       {/* --- TOP HERO: Branded Deep Navy SaaS Hero Card --- */}
       {currentView === 'home' ? (
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#1c1265] via-[#22177a] to-[#0f093f] text-white p-7 lg:p-8 shadow-xl shadow-[#22177a]/20 border border-[#3b2c9e]/40">
-          {/* Subtle Decorative Ambient Glows */}
-          <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-amber-400/10 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-64 opacity-15 flex items-center justify-end pointer-events-none">
-            <PartyFlameSwoosh size="lg" />
-          </div>
-
+        <div className="relative overflow-hidden rounded-2xl bg-[#18134b] text-white p-7 lg:p-8 border border-[#2e267d] shadow-sm">
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-            {/* Left Column: Clean, uncluttered, graceful (Max 3-4 elements) */}
+            {/* Left Column: Clean, uncluttered executive header */}
             <div className="flex-1 max-w-2xl">
-              {/* Element 1: Refined Module Pill */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-amber-300 text-xs font-semibold mb-3">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              {/* Element 1: Status Module Pill */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-amber-300 text-xs font-semibold mb-3">
+                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                 <span>የወረዳ ዋና አስተዳዳሪ • {currentUser.name}</span>
               </div>
 
               {/* Element 2: Commanding Title with Branded Icon Box */}
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-amber-300 flex items-center justify-center shadow-inner shrink-0">
-                  <MapPin className="w-6 h-6" />
+              <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 text-amber-300 flex items-center justify-center shrink-0">
+                  <MapPin className="w-5 h-5" />
                 </div>
                 <span>{woredaName}</span>
               </h1>
 
-              {/* Element 3: Graceful Minimal Subtitle */}
-              <p className="text-sm sm:text-base text-slate-200/90 mt-2.5 font-normal leading-relaxed">
-                የወረዳው 5ቱ ይፋዊ ዘርፎች ማስተባበሪያና ወደ ክ/ከተማ የሰነድ መላኪያ ዴስክ።
+              {/* Element 3: Purpose Subtitle */}
+              <p className="text-sm text-slate-200 mt-2 font-normal leading-relaxed">
+                የወረዳው 5ቱ ይፋዊ ዘርፎች ማስተባበሪያና ወደ ክ/ከተማ የሰነድ መላኪያ ዴስክ
               </p>
             </div>
 
-            {/* Right Column: Prominent Action Hub (Stat cards removed) */}
+            {/* Right Column: Purposeful Action Button */}
             <div className="flex items-center shrink-0">
               <button
                 onClick={onOpenUpload}
-                className="flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 text-slate-950 font-black text-xs sm:text-sm hover:shadow-xl hover:shadow-amber-400/25 hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-md group"
+                className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm transition-colors shadow-sm"
               >
-                <div className="w-6 h-6 rounded-xl bg-slate-950/15 text-slate-950 flex items-center justify-center group-hover:rotate-90 transition-transform duration-300">
-                  <Upload className="w-4 h-4 stroke-[2.5]" />
-                </div>
-                <span>+ አዲስ ሰነድ ላክ</span>
+                <Upload className="w-4 h-4 stroke-[2.5]" />
+                <span>አዲስ ሰነድ ላክ</span>
               </button>
             </div>
           </div>

@@ -156,44 +156,37 @@ export const ELibraryDashboard: React.FC<ELibraryDashboardProps> = ({
   return (
     <div className="space-y-6">
       
-      {/* Top Header Card: Branded Deep Navy SaaS Hero Card */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#1c1265] via-[#22177a] to-[#0f093f] text-white p-7 lg:p-8 shadow-xl shadow-[#22177a]/20 border border-[#3b2c9e]/40">
-        {/* Subtle Decorative Ambient Glows */}
-        <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-amber-400/10 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-64 opacity-15 flex items-center justify-end pointer-events-none">
-          <PartyFlameSwoosh size="lg" />
-        </div>
-
+      {/* Top Header Card: Dignified Executive Card */}
+      <div className="relative overflow-hidden rounded-2xl bg-[#18134b] text-white p-7 lg:p-8 border border-[#2e267d] shadow-sm">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          {/* Left Section: Clean, uncluttered, graceful (Max 3-4 elements) */}
+          {/* Left Section: Clean, uncluttered executive header */}
           <div className="flex-1 max-w-2xl">
             {/* Element 1: Refined Module Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-amber-300 text-xs font-semibold mb-3">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>ሞጁል 2.5 • ዲጂታል ቤተ-መፅሀፍት (E-Library)</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-amber-300 text-xs font-semibold mb-3">
+              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span>ሞጁል 2.5 • ዲጂታል ቤተ-መጽሐፍት</span>
             </div>
 
             {/* Element 2: Commanding Title with Branded Icon Box */}
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-amber-300 flex items-center justify-center shadow-inner shrink-0">
-                <BookOpen className="w-6 h-6" />
+            <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 text-amber-300 flex items-center justify-center shrink-0">
+                <BookOpen className="w-5 h-5" />
               </div>
-              <span>ዲጂታል ቤተ-መፅሀፍትና ኢ-ላይብራሪ</span>
+              <span>ዲጂታል ቤተ-መጽሐፍት</span>
             </h1>
 
-            {/* Element 3: Graceful Minimal Subtitle */}
-            <p className="text-sm sm:text-base text-slate-200/90 mt-2.5 font-normal leading-relaxed">
-              የፓርቲ ሰነዶች፣ ፖሊሲዎች፣ ስልጠናዎችና ሚዲያዎች ዲጂታል ማደራጃ።
+            {/* Element 3: Purpose Subtitle */}
+            <p className="text-sm text-slate-200 mt-2 font-normal leading-relaxed">
+              የፓርቲ ሰነዶች፣ ፖሊሲዎች፣ ስልጠናዎችና ሚዲያዎች ዲጂታል ማደራጃ
             </p>
           </div>
 
-          {/* Right Section: Prominent Action CTA (2nd attachment / stat tiles removed) */}
+          {/* Right Section: Purposeful Action Buttons */}
           <div className="flex items-center gap-2.5 shrink-0">
             {selectedCategory !== null && (
               <button
                 onClick={() => setSelectedCategory(null)}
-                className="flex items-center justify-center gap-1.5 px-4 py-3 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs font-bold hover:bg-white/20 transition-all shadow-xs"
+                className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white text-xs font-bold hover:bg-white/20 transition-colors shadow-xs"
               >
                 <ArrowLeft className="w-4 h-4 text-amber-300" />
                 <span>ወደ ማውጫ</span>
@@ -201,12 +194,10 @@ export const ELibraryDashboard: React.FC<ELibraryDashboardProps> = ({
             )}
             <button
               onClick={onOpenUploadModal}
-              className="flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 text-slate-950 font-black text-sm hover:shadow-xl hover:shadow-amber-400/25 hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-md group"
+              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm transition-colors shadow-sm"
             >
-              <div className="w-6 h-6 rounded-xl bg-slate-950/15 text-slate-950 flex items-center justify-center group-hover:rotate-90 transition-transform duration-300">
-                <Plus className="w-4 h-4 stroke-[2.5]" />
-              </div>
-              <span>+ አዲስ ሰነድ / ሚዲያ ጨምር</span>
+              <Plus className="w-4 h-4 stroke-[2.5]" />
+              <span>አዲስ ሰነድ / ሚዲያ ጨምር</span>
             </button>
           </div>
         </div>
@@ -320,8 +311,8 @@ export const ELibraryDashboard: React.FC<ELibraryDashboardProps> = ({
                   <PieChart className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-xs sm:text-sm text-slate-900 uppercase tracking-wider">
-                    የዲጂታል ቤተ-መፅሀፍት ትንተና (E-Library Analytics)
+                  <h3 className="font-bold text-xs sm:text-sm text-slate-900 uppercase tracking-wider">
+                    የዲጂታል ቤተ-መጽሐፍት ትንተና
                   </h3>
                   <p className="text-[11px] text-slate-500">የሰነዶች፣ ቪዲዮዎችና ኦዲዮዎች ዲጂታል ስርጭት</p>
                 </div>
@@ -436,7 +427,7 @@ export const ELibraryDashboard: React.FC<ELibraryDashboardProps> = ({
                 <div className="space-y-3 text-xs">
                   <div>
                     <div className="flex justify-between text-[11px] font-bold text-slate-700 mb-1">
-                      <span>የማውረድ ምጣኔ (Download Velocity)</span>
+                      <span>የማውረድ ምጣኔ</span>
                       <span className="font-mono text-[#22177a]">በቀን ~180 ውርዶች</span>
                     </div>
                     <div className="h-2.5 w-full bg-slate-200 rounded-full overflow-hidden">
@@ -471,8 +462,8 @@ export const ELibraryDashboard: React.FC<ELibraryDashboardProps> = ({
                   <BookOpen className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-xs sm:text-sm text-slate-900 uppercase tracking-wider">
-                    በቅርብ ወደ ላይብራሪው የተጨመሩ ሰነዶችና ሚዲያዎች (Recently Added)
+                  <h3 className="font-bold text-xs sm:text-sm text-slate-900 uppercase tracking-wider">
+                    በቅርብ የተጨመሩ ሰነዶችና ሚዲያዎች
                   </h3>
                   <p className="text-[11px] text-slate-500">የቅርብ ጊዜ ዲጂታል የይዘት ግብአቶች</p>
                 </div>

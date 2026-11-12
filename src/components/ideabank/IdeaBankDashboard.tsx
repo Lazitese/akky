@@ -108,44 +108,37 @@ export const IdeaBankDashboard: React.FC<IdeaBankDashboardProps> = ({
   return (
     <div className="space-y-6">
       
-      {/* Top Header Card: Branded Deep Navy SaaS Hero Card */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#1c1265] via-[#22177a] to-[#0f093f] text-white p-7 lg:p-8 shadow-xl shadow-[#22177a]/20 border border-[#3b2c9e]/40">
-        {/* Subtle Decorative Ambient Glows */}
-        <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-amber-400/10 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-64 opacity-15 flex items-center justify-end pointer-events-none">
-          <PartyFlameSwoosh size="lg" />
-        </div>
-
+      {/* Top Header Card: Dignified Executive Card */}
+      <div className="relative overflow-hidden rounded-2xl bg-[#18134b] text-white p-7 lg:p-8 border border-[#2e267d] shadow-sm">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          {/* Left Column: Clean, uncluttered, graceful (Max 3-4 elements) */}
+          {/* Left Column: Clean, uncluttered executive header */}
           <div className="flex-1 max-w-2xl">
-            {/* Element 1: Live Status Module Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-amber-300 text-xs font-semibold mb-3">
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            {/* Element 1: Status Module Pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-amber-300 text-xs font-semibold mb-3">
+              <span className="w-2 h-2 rounded-full bg-amber-400"></span>
               <span>ሞጁል 2.4 • የእውቀትና ሀሳብ ባንክ</span>
             </div>
 
             {/* Element 2: Commanding Title with Branded Icon Box */}
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-amber-300 flex items-center justify-center shadow-inner shrink-0">
-                <Sparkles className="w-6 h-6" />
+            <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 text-amber-300 flex items-center justify-center shrink-0">
+                <Sparkles className="w-5 h-5" />
               </div>
-              <span>የሀሳብ ባንክ</span>
+              <span>የእውቀትና ሀሳብ ባንክ</span>
             </h1>
 
-            {/* Element 3: Graceful Minimal Subtitle */}
-            <p className="text-sm sm:text-base text-slate-200/90 mt-2.5 font-normal leading-relaxed">
-              የአመራሮችና አባላት የፖሊሲ፣ ኢኮኖሚና ማህበራዊ ሀሳቦች መጋሪያ።
+            {/* Element 3: Purpose Subtitle */}
+            <p className="text-sm text-slate-200 mt-2 font-normal leading-relaxed">
+              የአመራሮችና አባላት የፖሊሲ፣ ኢኮኖሚና ማህበራዊ ሀሳቦች መጋሪያ
             </p>
           </div>
 
-          {/* Right Column: Prominent Action Hub (Stat cards removed) */}
+          {/* Right Column: Purposeful Action Buttons */}
           <div className="flex items-center gap-3 shrink-0">
             {selectedCategory !== null && (
               <button
                 onClick={() => setSelectedCategory(null)}
-                className="flex items-center justify-center gap-2 px-4 py-3 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs sm:text-sm font-bold hover:bg-white/20 transition-all shadow-xs"
+                className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white text-xs sm:text-sm font-bold hover:bg-white/20 transition-colors shadow-xs"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>ወደ ማውጫ</span>
@@ -153,12 +146,10 @@ export const IdeaBankDashboard: React.FC<IdeaBankDashboardProps> = ({
             )}
             <button
               onClick={onOpenShareModal}
-              className="flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 text-slate-950 font-black text-xs sm:text-sm hover:shadow-xl hover:shadow-amber-400/25 hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-md group"
+              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm transition-colors shadow-sm"
             >
-              <div className="w-6 h-6 rounded-xl bg-slate-950/15 text-slate-950 flex items-center justify-center group-hover:rotate-90 transition-transform duration-300">
-                <Plus className="w-4 h-4 stroke-[2.5]" />
-              </div>
-              <span>+ አዲስ ሀሳብ / ፅሁፍ አጋራ</span>
+              <Plus className="w-4 h-4 stroke-[2.5]" />
+              <span>አዲስ ሀሳብ / ፅሁፍ አጋራ</span>
             </button>
           </div>
         </div>
@@ -272,8 +263,8 @@ export const IdeaBankDashboard: React.FC<IdeaBankDashboardProps> = ({
                   <PieChart className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-xs sm:text-sm text-slate-900 uppercase tracking-wider">
-                    የዕውቀትና ሀሳብ ባንክ ትንተና (Knowledge Analytics)
+                  <h3 className="font-bold text-xs sm:text-sm text-slate-900 uppercase tracking-wider">
+                    የዕውቀትና ሀሳብ ባንክ ትንተና
                   </h3>
                   <p className="text-[11px] text-slate-500">የጥናት ፅሁፎችና የአንባቢዎች ተሳትፎ ዳታ</p>
                 </div>
@@ -389,7 +380,7 @@ export const IdeaBankDashboard: React.FC<IdeaBankDashboardProps> = ({
                 <div className="space-y-3 text-xs">
                   <div>
                     <div className="flex justify-between text-[11px] font-bold text-slate-700 mb-1">
-                      <span>የአንባቢዎች ተሳትፎ ምጣኔ (Views/Doc)</span>
+                      <span>የአንባቢዎች አማካይ ተሳትፎ ምጣኔ</span>
                       <span className="font-mono text-[#22177a]">{Math.round(totalViews / Math.max(1, ideas.length))} ዕይታ / ፅሁፍ</span>
                     </div>
                     <div className="h-2.5 w-full bg-slate-200 rounded-full overflow-hidden">
@@ -424,8 +415,8 @@ export const IdeaBankDashboard: React.FC<IdeaBankDashboardProps> = ({
                   <BookOpen className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-xs sm:text-sm text-slate-900 uppercase tracking-wider">
-                    የቅርብ ጊዜ የተጋሩ ሀሳቦችና ጥናቶች (Recently Shared Ideas)
+                  <h3 className="font-bold text-xs sm:text-sm text-slate-900 uppercase tracking-wider">
+                    የቅርብ ጊዜ የተጋሩ ሀሳቦችና ጥናቶች
                   </h3>
                   <p className="text-[11px] text-slate-500">የአባላትና የአመራር ጥናታዊ ፅሁፎች</p>
                 </div>
@@ -509,7 +500,7 @@ export const IdeaBankDashboard: React.FC<IdeaBankDashboardProps> = ({
               className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 transition-all shadow-xs"
             >
               <ArrowLeft className="w-3.5 h-3.5 text-slate-500" />
-              <span>← ወደ ምድቦች ተመለስ (Back to Categories)</span>
+              <span>← ወደ ምድቦች ተመለስ</span>
             </button>
 
             <div className="font-extrabold text-xs text-slate-800 bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200">

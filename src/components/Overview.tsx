@@ -118,7 +118,7 @@ export const Overview: React.FC<OverviewProps> = ({
           <div className="text-2xl font-bold font-mono text-black">{revisionDocs}</div>
           <div className="text-[10px] text-neutral-500 mt-1">አፋጣኝ መልስ የሚሹ</div>
           {revisionDocs > 0 && (
-            <span className="absolute top-2 right-2 w-2 h-2 bg-black rounded-full animate-ping"></span>
+            <span className="absolute top-2 right-2 w-2 h-2 bg-black rounded-full"></span>
           )}
         </div>
       </div>

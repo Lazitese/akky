@@ -200,7 +200,7 @@ export const ELibraryReaderModal: React.FC<ELibraryReaderModalProps> = ({
 
                 <div className="p-4 border my-4 bg-black/5 rounded-xs font-sans text-xs space-y-2">
                   <div className="font-bold uppercase tracking-wider">
-                    ቁልፍ የትኩረት ነጥቦች (Key Principles)፦
+                    ቁልፍ የትኩረት ነጥቦች፦
                   </div>
                   <ul className="list-disc pl-5 space-y-1">
                     <li>የፓርቲውን ርዕዮተ-ዓለምና መተዳደሪያ ደንብ በሚገባ መረዳትና ማስረፅ፤</li>
@@ -228,7 +228,7 @@ export const ELibraryReaderModal: React.FC<ELibraryReaderModalProps> = ({
           
           <div className="flex items-center gap-2 text-neutral-700">
             <CheckCircle2 className="w-4 h-4 text-black" />
-            <span className="font-bold">ከመስመር ውጭ ይገኛል (Offline Ready)</span>
+            <span className="font-bold">ከመስመር ውጭ ይገኛል</span>
             <span className="text-neutral-400 hidden sm:inline">•</span>
             <span className="hidden sm:inline text-neutral-500">መጠን፡ {item.fileSize}</span>
           </div>

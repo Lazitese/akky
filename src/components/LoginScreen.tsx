@@ -27,7 +27,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
         name: username.trim() || 'የክ/ከተማ ዋና አስተዳዳሪ',
         username: username.trim() || 'superadmin',
         role: 'SUBCITY_SUPER_ADMIN',
-        roleTitleAmharic: 'የክ/ከተማ ዋና አስተዳዳሪ (Super Admin)',
+        roleTitleAmharic: 'የክ/ከተማ ዋና አስተዳዳሪ',
       });
     }
   };
@@ -64,7 +64,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
         <form onSubmit={handleSubmit} className="space-y-3">
           <div>
             <label className="text-[11px] font-bold text-neutral-800 block mb-1">
-              የተጠቃሚ ስም (Username)፦
+              የተጠቃሚ ስም፦
             </label>
             <div className="relative">
               <input
@@ -72,7 +72,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
                 required
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="ለምሳሌ፡ superadmin"
+                placeholder="የተጠቃሚ ስም ያስገቡ..."
                 className="w-full border border-black px-2.5 py-1.5 text-xs focus:outline-none bg-white"
               />
             </div>
@@ -80,7 +80,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
 
           <div>
             <label className="text-[11px] font-bold text-neutral-800 block mb-1">
-              የይለፍ ቃል (Password)፦
+              የይለፍ ቃል፦
             </label>
             <div className="relative">
               <input
@@ -109,7 +109,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
         <div className="border-t border-dashed border-neutral-300 pt-4">
           <div className="flex items-center gap-1 text-[11px] font-bold text-neutral-600 uppercase tracking-wider mb-2">
             <UserCheck className="w-3.5 h-3.5" />
-            <span>በቀጥታ በሚና ይግቡ (Demo Access)፦</span>
+            <span>በቀጥታ በሚና ይግቡ፦</span>
           </div>
 
           <div className="grid grid-cols-1 gap-1.5">

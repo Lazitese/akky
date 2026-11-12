@@ -21,13 +21,13 @@ export const Header: React.FC<HeaderProps> = ({
   const getModuleTitle = () => {
     switch (activeModule) {
       case 'dms':
-        return 'የሰነድ እና ፋይል ማህደር (DMS)';
+        return 'የሰነድ እና ፋይል ማህደር';
       case 'trends':
-        return 'የወቅታዊ አዝማሚያና ሁኔታ ትንተና (PTAMIS)';
+        return 'የወቅታዊ ሁኔታና አዝማሚያ ትንተና';
       case 'ideabank':
-        return 'የሀሳብ ባንክ - ብልፅግና ፓርቲ የፅሁፍ ባንክ (Idea Bank)';
+        return 'የእውቀትና የሀሳብ ባንክ';
       case 'elibrary':
-        return 'ዲጂታል ቤተ-መፅሀፍትና ኢ-ላይብራሪ (E-Library)';
+        return 'ዲጂታል ቤተ-መጽሐፍት';
       default:
         return 'አቃቂ ቃሊቲ ቅርንጫፍ ፅ/ቤት';
     }
@@ -70,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({
           className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 hover:bg-[#22177a] hover:text-white hover:border-[#22177a] text-xs font-semibold transition-all shadow-xs group"
           title="ተጠቃሚ ለመቀየር ይጫኑ"
         >
-          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+          <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
           <span className="text-slate-800 group-hover:text-white">{currentUser.name}</span>
           <span className="text-slate-500 group-hover:text-white/80 font-normal hidden sm:inline text-[11px]">
             • {currentUser.roleTitleAmharic}

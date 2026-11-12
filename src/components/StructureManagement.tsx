@@ -241,10 +241,10 @@ export const StructureManagement: React.FC<StructureManagementProps> = ({
         <div>
           <h2 className="text-base font-bold text-black tracking-tight flex items-center gap-2">
             <Layers className="w-5 h-5" />
-            <span>የአደረጃጀት እና የዘርፎች ማስተዳደሪያ (Master Structure)</span>
+            <span>የአደረጃጀት እና የዘርፎች ማስተዳደሪያ</span>
           </h2>
           <p className="text-xs text-neutral-600">
-            የክፍለ ከተማው ዋና አስተዳዳሪ (Super Admin) ዘርፎችን፣ ወረዳዎችን እና የወረዳ ዘርፎችን የሚቆጣጠርበት ክፍል
+            የክፍለ ከተማው ዋና አስተዳዳሪ ዘርፎችን፣ ወረዳዎችን እና የወረዳ ዘርፎችን የሚቆጣጠርበት ክፍል
           </p>
         </div>
 
@@ -552,7 +552,7 @@ export const StructureManagement: React.FC<StructureManagementProps> = ({
                   type="text"
                   value={sectorCode}
                   onChange={(e) => setSectorCode(e.target.value)}
-                  placeholder="ለምሳሌ፡ LAW"
+                  placeholder="የዘርፉ አጭር መለያ ኮድ..."
                   className="w-full border border-black p-1.5 focus:outline-none font-mono"
                 />
               </div>

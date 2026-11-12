@@ -152,47 +152,38 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
     <div className="space-y-5 animate-fadeIn">
       {/* --- TOP HERO: Branded Deep Navy SaaS Hero Card --- */}
       {navState.view === 'home' ? (
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#1c1265] via-[#22177a] to-[#0f093f] text-white p-7 lg:p-8 shadow-xl shadow-[#22177a]/20 border border-[#3b2c9e]/40">
-          {/* Subtle Decorative Ambient Glows */}
-          <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-amber-400/10 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-64 opacity-15 flex items-center justify-end pointer-events-none">
-            <PartyFlameSwoosh size="lg" />
-          </div>
-
+        <div className="relative overflow-hidden rounded-2xl bg-[#18134b] text-white p-7 lg:p-8 border border-[#2e267d] shadow-sm">
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-            {/* Left Section: Clean, uncluttered, graceful (Max 3-4 elements) */}
+            {/* Left Section: Dignified, uncluttered executive header */}
             <div className="flex-1 max-w-2xl">
-              {/* Element 1: Refined Module Pill */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-amber-300 text-xs font-semibold mb-3">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              {/* Element 1: Clean Status Module Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-amber-300 text-xs font-semibold mb-3">
+                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                 <span>የዲጂታል ሰነድና ፋይል ማህደር</span>
               </div>
 
-              {/* Element 2: Commanding Title with Branded Icon Box */}
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-amber-300 flex items-center justify-center shadow-inner shrink-0">
-                  <Building2 className="w-6 h-6" />
+              {/* Element 2: Commanding Title with Official Icon */}
+              <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 text-amber-300 flex items-center justify-center shrink-0">
+                  <Building2 className="w-5 h-5" />
                 </div>
                 <span>የአቃቂ ቃሊቲ ሰነድ ማህደር</span>
               </h1>
 
-              {/* Element 3: Graceful Minimal Subtitle */}
-              <p className="text-sm sm:text-base text-slate-200/90 mt-2.5 font-normal leading-relaxed">
-                የ14ቱ ወረዳዎችና ማዕከላዊ ዘርፎች የተማከለ ይፋዊ የሰነድ አስተዳደር ስርዓት።
+              {/* Element 3: Clear Purpose Subtitle */}
+              <p className="text-sm text-slate-200 mt-2 font-normal leading-relaxed">
+                የ14ቱ ወረዳዎችና ማዕከላዊ ዘርፎች የተማከለ ይፋዊ የሰነድ አስተዳደር ስርዓት
               </p>
             </div>
 
-            {/* Right Section: Prominent Action CTA (2nd attachment / stat tiles removed) */}
+            {/* Right Section: Purposeful Action Button */}
             <div className="flex items-center shrink-0">
               <button
                 onClick={() => onOpenUpload()}
-                className="flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 text-slate-950 font-black text-sm hover:shadow-xl hover:shadow-amber-400/25 hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-md group"
+                className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm transition-colors shadow-sm"
               >
-                <div className="w-6 h-6 rounded-xl bg-slate-950/15 text-slate-950 flex items-center justify-center group-hover:rotate-90 transition-transform duration-300">
-                  <Upload className="w-4 h-4 stroke-[2.5]" />
-                </div>
-                <span>+ ሰነድ መዝግብ</span>
+                <Upload className="w-4 h-4 stroke-[2.5]" />
+                <span>ሰነድ መዝግብ</span>
               </button>
             </div>
           </div>
@@ -340,12 +331,9 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                     <h3 className="font-black text-sm sm:text-base text-slate-900 tracking-tight">
                       የፋይሎች አጠቃላይ ትንተና
                     </h3>
-                    <span className="font-mono text-[10px] font-bold text-slate-400 uppercase tracking-widest hidden sm:inline">
-                      (FILE ANALYTICS)
-                    </span>
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10.5px] font-bold">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                      ቀጥታ • Live
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                      ወቅታዊ
                     </span>
                   </div>
                   <p className="text-[11.5px] text-slate-500 mt-0.5">በእውነተኛ ጊዜ የተሰበሰበ የማዕከልና የወረዳዎች ሰነድ መረጃ</p>
@@ -543,7 +531,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                           : 'text-slate-500 hover:text-slate-800'
                       }`}
                     >
-                      ደረጃ (Ranked)
+                      ደረጃ
                     </button>
                     <button
                       type="button"
@@ -554,7 +542,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                           : 'text-slate-500 hover:text-slate-800'
                       }`}
                     >
-                      አምድ (Column)
+                      አምድ
                     </button>
                   </div>
                 </div>
@@ -591,8 +579,8 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                   <Folder className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-xs sm:text-sm text-slate-900 uppercase tracking-wider">
-                    የቅርብ ጊዜ የተጫኑ ሰነዶች (Recent Uploads)
+                  <h3 className="font-bold text-xs sm:text-sm text-slate-900 uppercase tracking-wider">
+                    የቅርብ ጊዜ የተጫኑ ሰነዶች
                   </h3>
                   <p className="text-[11px] text-slate-500">የቅርብ ጊዜ ገቢ የሆኑ ሰነዶች ዝርዝር</p>
                 </div>
@@ -663,7 +651,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                               doc.status === 'የጸደቀ'
                                 ? 'bg-emerald-500'
                                 : doc.status === 'ማሻሻያ የተጠየቀበት'
-                                ? 'bg-amber-500 animate-pulse'
+                                ? 'bg-amber-500'
                                 : 'bg-slate-400'
                             }`}
                           />
@@ -934,7 +922,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                               doc.status === 'የጸደቀ'
                                 ? 'bg-emerald-500'
                                 : doc.status === 'ማሻሻያ የተጠየቀበት'
-                                ? 'bg-amber-500 animate-pulse'
+                                ? 'bg-amber-500'
                                 : 'bg-slate-400'
                             }`}
                           />
@@ -1333,7 +1321,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                               doc.status === 'የጸደቀ'
                                 ? 'bg-emerald-500'
                                 : doc.status === 'ማሻሻያ የተጠየቀበት'
-                                ? 'bg-amber-500 animate-pulse'
+                                ? 'bg-amber-500'
                                 : 'bg-slate-400'
                             }`}
                           />

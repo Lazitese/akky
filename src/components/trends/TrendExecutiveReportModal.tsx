@@ -31,7 +31,7 @@ export const TrendExecutiveReportModal: React.FC<TrendExecutiveReportModalProps>
         <div className="p-3 border-b-2 border-black flex items-center justify-between bg-neutral-50 print:hidden">
           <div className="flex items-center gap-2">
             <span className="font-bold text-xs text-black">
-              ይፋዊ የአመራር አዝማሚያ ማጠቃለያ ሪፖርት (1-Page Executive Briefing)
+              ይፋዊ የአመራር አዝማሚያ ማጠቃለያ ሪፖርት
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -40,7 +40,7 @@ export const TrendExecutiveReportModal: React.FC<TrendExecutiveReportModalProps>
               className="px-2.5 py-1 border border-black hover:bg-black hover:text-white text-xs font-bold flex items-center gap-1 transition-colors"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span>አትም (Print)</span>
+              <span>አትም</span>
             </button>
             <button
               onClick={onClose}
@@ -170,7 +170,7 @@ export const TrendExecutiveReportModal: React.FC<TrendExecutiveReportModalProps>
           {/* 5. 14 Woredas Reporting Scorecard */}
           <div className="space-y-2 pt-2 border-t border-neutral-200">
             <h4 className="font-bold text-xs uppercase text-black">
-              4. የ14ቱ ወረዳዎች የመረጃ ማቅረብ ተሳትፎ (Woreda Reporting Matrix)
+              4. የ14ቱ ወረዳዎች የመረጃ ማቅረብ ተሳትፎ
             </h4>
             <div className="grid grid-cols-7 gap-1.5 text-center text-[10px] font-mono">
               {WOREDAS.map((w) => {
