@@ -13,8 +13,7 @@ import {
   Filter,
   PieChart,
   Activity,
-  Camera,
-  CheckCircle2
+  Camera
 } from 'lucide-react';
 import { TrendCategory, TrendAnalysisType, TrendItem } from '../../types/trends';
 import { Sector, Woreda } from '../../types/dms';
@@ -187,109 +186,55 @@ export const SubcitySuperAdminTrends: React.FC<SubcitySuperAdminTrendsProps> = (
     <div className="space-y-5 animate-fadeIn">
       {/* --- TOP HERO: Branded Deep Navy SaaS Hero Card --- */}
       {navState.view === 'home' ? (
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#22177a] via-[#1a1163] to-[#11094b] text-white p-6 lg:p-7 shadow-lg shadow-[#22177a]/15 border border-[#3b2c9e]/40">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#1c1265] via-[#22177a] to-[#0f093f] text-white p-7 lg:p-8 shadow-xl shadow-[#22177a]/20 border border-[#3b2c9e]/40">
           {/* Subtle Decorative Ambient Glows */}
           <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-amber-400/10 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-48 opacity-10 flex items-center justify-end pointer-events-none">
+          <div className="absolute right-0 top-0 bottom-0 w-64 opacity-15 flex items-center justify-end pointer-events-none">
             <PartyFlameSwoosh size="lg" />
           </div>
 
-          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            {/* Left Column: Module Meta & Header Information */}
-            <div className="flex-1">
-              {/* Live Status Module Pill */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-amber-300 mb-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
-                </span>
-                <span className="text-[11px] font-bold uppercase tracking-wider">
-                  ሞጁል 2.0 • ወቅታዊ ሁኔታና አዝማሚያ
-                </span>
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            {/* Left Column: Clean, uncluttered, graceful (Max 3-4 elements) */}
+            <div className="flex-1 max-w-2xl">
+              {/* Element 1: Refined Module Pill */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-amber-300 text-xs font-semibold mb-3">
+                <span className="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
+                <span>ሞጁል 2.0 • ወቅታዊ ሁኔታና አዝማሚያ</span>
               </div>
 
-              {/* Main Title with Gradient Icon & Tag */}
-              <h1 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight flex flex-wrap items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-amber-300 flex items-center justify-center shadow-inner shrink-0">
-                  <Activity className="w-5 h-5" />
+              {/* Element 2: Commanding Title with Branded Icon Box */}
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-amber-300 flex items-center justify-center shadow-inner shrink-0">
+                  <Activity className="w-6 h-6" />
                 </div>
                 <span>የፖለቲካ አዝማሚያና ሁኔታ ትንተና</span>
-                <span className="text-[11px] font-black tracking-wider uppercase px-2.5 py-0.5 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-400/30">
-                  PTAMIS
-                </span>
               </h1>
 
-              {/* Minimal Description */}
-              <p className="text-xs sm:text-[13px] text-slate-200/90 mt-1.5 max-w-xl font-normal leading-relaxed">
+              {/* Element 3: Graceful Minimal Subtitle */}
+              <p className="text-sm sm:text-base text-slate-200/90 mt-2.5 font-normal leading-relaxed">
                 የወቅታዊ ፖለቲካዊ፣ ኢኮኖሚያዊና ማህበራዊ ሁኔታዎች ቅጽበታዊ መከታተያ።
               </p>
-
-              {/* Feature Capability Badges */}
-              <div className="flex flex-wrap items-center gap-2 mt-3.5">
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-medium bg-white/10 backdrop-blur-md text-white/90 border border-white/15 px-3 py-1 rounded-full">
-                  <Activity className="w-3.5 h-3.5 text-rose-400" /> ቀጣይነት ያለው ዳሰሳ
-                </span>
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-medium bg-white/10 backdrop-blur-md text-white/90 border border-white/15 px-3 py-1 rounded-full">
-                  <FileText className="w-3.5 h-3.5 text-sky-400" /> ቅጽበታዊ ሪፖርት
-                </span>
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-medium bg-white/10 backdrop-blur-md text-white/90 border border-white/15 px-3 py-1 rounded-full">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> የአመራር ውሳኔ ድጋፍ
-                </span>
-              </div>
             </div>
 
-            {/* Right Column: Quick Key Metrics & Action Hub */}
-            <div className="flex flex-col lg:items-end justify-between gap-4 shrink-0 pt-4 lg:pt-0 border-t lg:border-t-0 border-white/10">
-              {/* Quick Metrics Cluster */}
-              <div className="grid grid-cols-3 gap-2 sm:gap-2.5 w-full lg:w-auto">
-                <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl px-3.5 py-2 text-center lg:text-left min-w-[95px] shadow-inner">
-                  <div className="text-[10px] font-bold text-amber-200/90 uppercase tracking-wider flex items-center justify-center lg:justify-start gap-1">
-                    <Activity className="w-3 h-3 text-amber-300" /> ጠቅላላ
-                  </div>
-                  <div className="text-base font-black text-white mt-0.5">
-                    {trends.length} <span className="text-[10px] font-normal text-slate-300">ዝንባሌዎች</span>
-                  </div>
+            {/* Right Column: Prominent Action Hub (Stat cards removed) */}
+            <div className="flex items-center gap-3 shrink-0">
+              <button
+                onClick={onOpenExecutiveReport}
+                className="flex items-center justify-center gap-2 px-4 py-3 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs sm:text-sm font-bold hover:bg-white/20 transition-all shadow-xs"
+              >
+                <FileText className="w-4 h-4 text-amber-300" />
+                <span>ጥቅል ሪፖርት</span>
+              </button>
+              <button
+                onClick={() => onOpenRegister()}
+                className="flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 text-slate-950 font-black text-xs sm:text-sm hover:shadow-xl hover:shadow-amber-400/25 hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-md group"
+              >
+                <div className="w-6 h-6 rounded-xl bg-slate-950/15 text-slate-950 flex items-center justify-center group-hover:rotate-90 transition-transform duration-300">
+                  <Plus className="w-4 h-4 stroke-[2.5]" />
                 </div>
-
-                <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl px-3.5 py-2 text-center lg:text-left min-w-[95px] shadow-inner">
-                  <div className="text-[10px] font-bold text-amber-200/90 uppercase tracking-wider flex items-center justify-center lg:justify-start gap-1">
-                    <span className="w-2 h-2 rounded-full bg-rose-400"></span> ትኩረት
-                  </div>
-                  <div className="text-base font-black text-white mt-0.5">
-                    {urgentCount} <span className="text-[10px] font-normal text-slate-300">አስቸኳይ</span>
-                  </div>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl px-3.5 py-2 text-center lg:text-left min-w-[95px] shadow-inner">
-                  <div className="text-[10px] font-bold text-amber-200/90 uppercase tracking-wider flex items-center justify-center lg:justify-start gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400"></span> አዎንታዊ
-                  </div>
-                  <div className="text-base font-black text-white mt-0.5">
-                    {positiveCount} <span className="text-[10px] font-normal text-slate-300">ጥሩ</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex items-center gap-2.5 w-full lg:w-auto">
-                <button
-                  onClick={onOpenExecutiveReport}
-                  className="flex-1 lg:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs font-bold hover:bg-white/20 transition-all shadow-xs"
-                >
-                  <FileText className="w-3.5 h-3.5 text-amber-300" />
-                  <span>ጥቅል ሪፖርት</span>
-                </button>
-                <button
-                  onClick={() => onOpenRegister()}
-                  className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 text-slate-950 text-xs sm:text-[13px] font-black hover:shadow-lg hover:shadow-amber-400/30 hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-md group"
-                >
-                  <div className="w-5 h-5 rounded-lg bg-slate-950/15 text-slate-950 flex items-center justify-center group-hover:rotate-90 transition-transform duration-300">
-                    <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
-                  </div>
-                  <span>+ መረጃ መዝግብ</span>
-                </button>
-              </div>
+                <span>+ መረጃ መዝግብ</span>
+              </button>
             </div>
           </div>
         </div>
