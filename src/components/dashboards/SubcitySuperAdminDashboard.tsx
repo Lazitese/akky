@@ -317,7 +317,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
             {/* 4 Modern SaaS Metric Tiles with Micro-Progress Tracks */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {/* Card 1: Total Docs */}
-              <div className="group rounded-2xl p-4.5 bg-white border border-slate-200/90 shadow-[0_1px_3px_rgba(0,0,0,0.03),0_4px_12px_rgba(0,0,0,0.02)] hover:border-slate-300 hover:shadow-md transition-all duration-300">
+              <div className="group rounded-2xl p-5 bg-white border border-slate-200/90 shadow-sm hover:border-slate-300 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-extrabold text-slate-500 uppercase tracking-wider">
                     ጠቅላላ ሰነዶች
@@ -326,23 +326,30 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                     <FileText className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="mt-2.5 flex items-baseline gap-2">
+                <div className="mt-3 flex items-baseline gap-2">
                   <span className="text-3xl font-black font-mono tracking-tight text-slate-900">
                     {documents.length}
                   </span>
-                  <span className="text-[11px] font-bold text-slate-400">ፋይሎች</span>
-                </div>
-                <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px]">
-                  <span className="inline-flex items-center gap-1 text-emerald-600 font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-[#22177a] border border-slate-200">
                     100% ዲጂታላይዝድ
                   </span>
-                  <span className="font-mono text-slate-400 text-[10px]">HQ + 14 ወረዳዎች</span>
+                </div>
+                <div className="mt-4 pt-2">
+                  <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                    <div 
+                      style={{ width: '100%' }} 
+                      className="h-full bg-gradient-to-r from-[#22177a] to-[#3b82f6] rounded-full transition-all duration-1000"
+                    />
+                  </div>
+                  <div className="mt-2 flex items-center justify-between text-[10.5px] text-slate-400">
+                    <span>HQ + 14 ወረዳዎች</span>
+                    <span className="text-[#22177a] font-bold">ሙሉ ዳታቤዝ</span>
+                  </div>
                 </div>
               </div>
 
               {/* Card 2: Approved Docs */}
-              <div className="group rounded-2xl p-4.5 bg-white border border-slate-200/90 shadow-[0_1px_3px_rgba(0,0,0,0.03),0_4px_12px_rgba(0,0,0,0.02)] hover:border-emerald-200 hover:shadow-md transition-all duration-300">
+              <div className="group rounded-2xl p-5 bg-white border border-slate-200/90 shadow-sm hover:border-emerald-200 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-extrabold text-slate-500 uppercase tracking-wider">
                     የጸደቁ ፋይሎች
@@ -351,7 +358,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="mt-2.5 flex items-baseline gap-2">
+                <div className="mt-3 flex items-baseline gap-2">
                   <span className="text-3xl font-black font-mono tracking-tight text-emerald-950">
                     {approvedDocsCount}
                   </span>
@@ -359,14 +366,14 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                     {Math.round((approvedDocsCount / Math.max(1, documents.length)) * 100)}% ተረጋግጧል
                   </span>
                 </div>
-                <div className="mt-3 pt-2">
+                <div className="mt-4 pt-2">
                   <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                     <div 
                       style={{ width: `${Math.round((approvedDocsCount / Math.max(1, documents.length)) * 100)}%` }} 
                       className="h-full bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full transition-all duration-1000"
                     />
                   </div>
-                  <div className="mt-1.5 flex items-center justify-between text-[10.5px] text-slate-400">
+                  <div className="mt-2 flex items-center justify-between text-[10.5px] text-slate-400">
                     <span>{approvedDocsCount} ከ {documents.length} ጸድቀዋል</span>
                     <span className="text-emerald-700 font-bold">ንቁ ሰነዶች</span>
                   </div>
@@ -374,7 +381,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
               </div>
 
               {/* Card 3: Revision Required */}
-              <div className="group rounded-2xl p-4.5 bg-white border border-slate-200/90 shadow-[0_1px_3px_rgba(0,0,0,0.03),0_4px_12px_rgba(0,0,0,0.02)] hover:border-amber-200 hover:shadow-md transition-all duration-300">
+              <div className="group rounded-2xl p-5 bg-white border border-slate-200/90 shadow-sm hover:border-amber-200 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-extrabold text-slate-500 uppercase tracking-wider">
                     ክለሳ / ማሻሻያ
@@ -383,7 +390,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                     <AlertCircle className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="mt-2.5 flex items-baseline gap-2">
+                <div className="mt-3 flex items-baseline gap-2">
                   <span className="text-3xl font-black font-mono tracking-tight text-amber-950">
                     {revisionDocsCount}
                   </span>
@@ -391,14 +398,14 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                     {Math.round((revisionDocsCount / Math.max(1, documents.length)) * 100)}% ክለሳ
                   </span>
                 </div>
-                <div className="mt-3 pt-2">
+                <div className="mt-4 pt-2">
                   <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                     <div 
                       style={{ width: `${Math.round((revisionDocsCount / Math.max(1, documents.length)) * 100)}%` }} 
                       className="h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full transition-all duration-1000"
                     />
                   </div>
-                  <div className="mt-1.5 flex items-center justify-between text-[10.5px] text-slate-400">
+                  <div className="mt-2 flex items-center justify-between text-[10.5px] text-slate-400">
                     <span>{revisionDocsCount} ሰነዶች ማሻሻያ ይጠይቃሉ</span>
                     <span className="text-amber-700 font-bold">ቅድሚያ</span>
                   </div>
@@ -406,7 +413,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
               </div>
 
               {/* Card 4: QR Secured */}
-              <div className="group rounded-2xl p-4.5 bg-white border border-slate-200/90 shadow-[0_1px_3px_rgba(0,0,0,0.03),0_4px_12px_rgba(0,0,0,0.02)] hover:border-[#22177a]/30 hover:shadow-md transition-all duration-300">
+              <div className="group rounded-2xl p-5 bg-white border border-slate-200/90 shadow-sm hover:border-[#22177a]/30 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-extrabold text-slate-500 uppercase tracking-wider">
                     QR የተመሰጠረ
@@ -415,7 +422,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                     <ShieldCheck className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="mt-2.5 flex items-baseline gap-2">
+                <div className="mt-3 flex items-baseline gap-2">
                   <span className="text-3xl font-black font-mono tracking-tight text-slate-900">
                     {documents.length}
                   </span>
@@ -423,14 +430,14 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
                     100% ደህንነት
                   </span>
                 </div>
-                <div className="mt-3 pt-2">
+                <div className="mt-4 pt-2">
                   <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                     <div 
                       style={{ width: '100%' }} 
                       className="h-full bg-gradient-to-r from-[#22177a] to-[#3b82f6] rounded-full transition-all duration-1000"
                     />
                   </div>
-                  <div className="mt-1.5 flex items-center justify-between text-[10.5px] text-slate-400">
+                  <div className="mt-2 flex items-center justify-between text-[10.5px] text-slate-400">
                     <span>{documents.length} ሰነዶች በQR ተረጋግጠዋል</span>
                     <span className="text-[#22177a] font-bold">ተቆልፏል</span>
                   </div>
@@ -951,7 +958,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
               return (
                 <div
                   key={w.id}
-                  className={`rounded-2xl p-4.5 flex flex-col justify-between space-y-3.5 transition-all duration-300 relative overflow-hidden group ${
+                  className={`rounded-2xl p-5 flex flex-col justify-between space-y-3.5 transition-all duration-300 relative overflow-hidden group ${
                     isFirstWoreda
                       ? 'bg-gradient-to-br from-[#22177a] via-[#1a1163] to-[#120947] text-white border border-amber-400/40 shadow-md hover:shadow-xl hover:shadow-[#22177a]/25 hover:-translate-y-1'
                       : 'bg-white text-slate-800 border border-slate-200/90 shadow-xs hover:shadow-lg hover:border-slate-300 hover:-translate-y-1'

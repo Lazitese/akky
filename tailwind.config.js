@@ -8,6 +8,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        '4.5': '1.125rem',
+      },
+      boxShadow: {
+        'xs': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+      },
       fontFamily: {
         sans: ['"Noto Sans Ethiopic"', 'system-ui', '-apple-system', 'sans-serif'],
       },
