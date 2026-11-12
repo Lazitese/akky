@@ -22,12 +22,6 @@ import {
 import { DocumentCategory, DocumentItem, Sector, Woreda } from '../../types/dms';
 import { User } from '../../types/auth';
 import { PartyFlameSwoosh, PartyMottoBanner } from '../brand/PartyFlameAccent';
-import { 
-  ModernBarChart, 
-  ModernDonutChart, 
-  ModernSplitDonutChart, 
-  ModernRankedProgressList 
-} from '../charts/ModernSaasCharts';
 import { ChartAreaInteractive } from '../charts/ChartAreaInteractive';
 import { ChartBarMultiple } from '../charts/ChartBarMultiple';
 import { ChartPieDonutActive } from '../charts/ChartPieDonutActive';
@@ -64,7 +58,6 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
 }) => {
   const [navState, setNavState] = useState<NavigationState>({ view: 'home' });
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [sectorChartView, setSectorChartView] = useState<'ranked' | 'column'>('ranked');
 
   // Total counts for top-level boxes
   const subcityDocs = documents.filter((d) => d.level === 'ክፍለ ከተማ');
@@ -73,18 +66,6 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
   // Analytics calculations
   const approvedDocsCount = documents.filter((d) => d.status === 'የጸደቀ').length;
   const revisionDocsCount = documents.filter((d) => d.status === 'ማሻሻያ የተጠየቀበት').length;
-
-  const planDocs = documents.filter((d) => d.category === 'ዕቅድ').length;
-  const reportDocs = documents.filter((d) => d.category === 'ሪፖርት').length;
-  const letterDocs = documents.filter((d) => d.category === 'ደብዳቤ').length;
-  const circularDocs = documents.filter((d) => d.category === 'ሰርኩላር').length;
-  const otherDocs = documents.filter((d) => d.category === 'ሌሎች').length;
-
-  const sectorStats = sectors.map((sec) => ({
-    name: sec.name,
-    code: sec.code,
-    count: documents.filter((d) => d.sector === sec.name).length,
-  }));
 
   const recentUploads = [...documents]
     .sort((a, b) => b.uploadDate.localeCompare(a.uploadDate) || b.id.localeCompare(a.id))
@@ -483,96 +464,7 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
               </div>
             </div>
 
-            {/* 2 Modern SaaS Cards in Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-1">
-              {/* Chart 1: Modern Split Donut Chart with Breakdown List */}
-              <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-[0_1px_3px_rgba(0,0,0,0.03),0_4px_12px_rgba(0,0,0,0.02)] flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                  <div>
-                    <h4 className="font-black text-sm text-slate-900 tracking-tight flex items-center gap-2">
-                      <PieChart className="w-4 h-4 text-[#22177a]" />
-                      <span>የሰነድ ምድቦች ስርጭት</span>
-                    </h4>
-                    <p className="text-[11px] text-slate-500">በ5ቱ ዋና ዋና ምድቦች የተመደቡ ሰነዶች</p>
-                  </div>
-                  <span className="text-[10.5px] font-mono px-2.5 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-bold">
-                    5 ምድቦች
-                  </span>
-                </div>
 
-                <ModernSplitDonutChart
-                  data={[
-                    { name: 'ሪፖርት', value: reportDocs, color: '#3b82f6' },
-                    { name: 'ሰርኩላር', value: circularDocs, color: '#10b981' },
-                    { name: 'ዕቅድ', value: planDocs, color: '#22177a' },
-                    { name: 'ደብዳቤ', value: letterDocs, color: '#f59e0b' },
-                    { name: 'ሌሎች', value: otherDocs, color: '#8b5cf6' },
-                  ]}
-                  centerLabel="ሰነዶች"
-                  centerCount={documents.length}
-                />
-              </div>
-
-              {/* Chart 2: Modern SaaS Sector Comparison with View Toggle */}
-              <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-[0_1px_3px_rgba(0,0,0,0.03),0_4px_12px_rgba(0,0,0,0.02)] flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                  <div>
-                    <h4 className="font-black text-sm text-slate-900 tracking-tight flex items-center gap-2">
-                      <BarChart3 className="w-4 h-4 text-[#22177a]" />
-                      <span>የዘርፎች ሰነድ ገቢ ንጽጽር</span>
-                    </h4>
-                    <p className="text-[11px] text-slate-500">የ5ቱ ማዕከላዊ ዘርፎች የሰነድ ገቢ ድርሻ</p>
-                  </div>
-
-                  {/* SaaS View Toggle Buttons */}
-                  <div className="flex items-center gap-1 bg-slate-100 p-0.5 rounded-xl border border-slate-200/80 text-[11px]">
-                    <button
-                      type="button"
-                      onClick={() => setSectorChartView('ranked')}
-                      className={`px-2.5 py-1 rounded-lg font-bold transition-all ${
-                        sectorChartView === 'ranked'
-                          ? 'bg-white text-slate-900 shadow-xs'
-                          : 'text-slate-500 hover:text-slate-800'
-                      }`}
-                    >
-                      ደረጃ
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setSectorChartView('column')}
-                      className={`px-2.5 py-1 rounded-lg font-bold transition-all ${
-                        sectorChartView === 'column'
-                          ? 'bg-white text-slate-900 shadow-xs'
-                          : 'text-slate-500 hover:text-slate-800'
-                      }`}
-                    >
-                      አምድ
-                    </button>
-                  </div>
-                </div>
-
-                {sectorChartView === 'ranked' ? (
-                  <ModernRankedProgressList
-                    items={sectorStats.map((s) => ({
-                      name: s.name,
-                      count: s.count,
-                      code: s.code,
-                    }))}
-                    totalCount={documents.length}
-                    unitLabel="ፋይሎች"
-                  />
-                ) : (
-                  <ModernBarChart
-                    data={sectorStats.map((s) => ({
-                      name: s.name.replace('የ', '').replace(' ዘርፍ', ''),
-                      count: s.count,
-                    }))}
-                    height={220}
-                    barColor="#22177a"
-                  />
-                )}
-              </div>
-            </div>
 
             {/* Interactive Area Chart */}
             <ChartAreaInteractive />
