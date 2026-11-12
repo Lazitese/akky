@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { DocumentItem, DocumentCategory } from '../../types/dms';
 import { User } from '../../types/auth';
+import { PartyFlameSwoosh } from '../brand/PartyFlameAccent';
 
 interface SubcitySectorDashboardProps {
   currentUser: User;
@@ -53,54 +54,146 @@ export const SubcitySectorDashboard: React.FC<SubcitySectorDashboardProps> = ({
 
   return (
     <div className="space-y-4">
-      {/* --- TOP BAR --- */}
-      <div className="border-2 border-black bg-white p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          {currentView !== 'home' && (
-            <button
-              onClick={() => setCurrentView('home')}
-              className="p-1.5 border-2 border-black hover:bg-black hover:text-white transition-colors"
-              title="ወደ ዋናው ተመለስ"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-          )}
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 bg-black text-white text-[10px] font-mono font-bold uppercase">
-                የክ/ከተማ ዘርፍ ኃላፊ
-              </span>
-              <span className="text-xs text-neutral-500 font-bold">{currentUser.name}</span>
+      {/* --- TOP HERO: Branded Deep Navy SaaS Hero Card --- */}
+      {currentView === 'home' ? (
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#22177a] via-[#1a1163] to-[#11094b] text-white p-6 lg:p-7 shadow-lg shadow-[#22177a]/15 border border-[#3b2c9e]/40">
+          {/* Subtle Decorative Ambient Glows */}
+          <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-amber-400/10 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-48 opacity-10 flex items-center justify-end pointer-events-none">
+            <PartyFlameSwoosh size="lg" />
+          </div>
+
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            {/* Left Column: Module Meta & Header Information */}
+            <div className="flex-1">
+              {/* Live Status Module Pill */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-amber-300 mb-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                </span>
+                <span className="text-[11px] font-bold uppercase tracking-wider">
+                  የክ/ከተማ ዘርፍ ኃላፊ • {currentUser.name}
+                </span>
+              </div>
+
+              {/* Main Title with Gradient Icon & Tag */}
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight flex flex-wrap items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-amber-300 flex items-center justify-center shadow-inner shrink-0">
+                  <Building2 className="w-5 h-5" />
+                </div>
+                <span>{sectorName}</span>
+                <span className="text-[11px] font-black tracking-wider uppercase px-2.5 py-0.5 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-400/30">
+                  Executive Desk
+                </span>
+              </h1>
+
+              {/* Minimal Description */}
+              <p className="text-xs sm:text-[13px] text-slate-200/90 mt-1.5 max-w-xl font-normal leading-relaxed">
+                የወረዳዎች ሰነድ ክትትል፣ ግምገማ፣ ማሻሻያ እና ሰርኩላር ማሰራጫ ዴስክ።
+              </p>
+
+              {/* Feature Capability Badges */}
+              <div className="flex flex-wrap items-center gap-2 mt-3.5">
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-medium bg-white/10 backdrop-blur-md text-white/90 border border-white/15 px-3 py-1 rounded-full">
+                  <BookOpen className="w-3.5 h-3.5 text-sky-400" /> ይፋዊ ካቢኔት
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-medium bg-white/10 backdrop-blur-md text-white/90 border border-white/15 px-3 py-1 rounded-full">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> የሰነድ ግምገማ
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-medium bg-white/10 backdrop-blur-md text-white/90 border border-white/15 px-3 py-1 rounded-full">
+                  <Send className="w-3.5 h-3.5 text-amber-300" /> ሰርኩላር ስርዓት
+                </span>
+              </div>
             </div>
-            <h1 className="text-base font-bold text-black mt-0.5">
-              {currentView === 'home' && `${sectorName} • የስራ አስፈጻሚ ዴስክ`}
-              {currentView === 'review' && 'የወረዳዎች ሰነድ መገምገሚያና ውሳኔ መስጫ ዴስክ'}
-              {currentView === 'cabinet' && `የ${sectorName} ማዕከላዊ ካቢኔት አቃፊዎች`}
-              {currentView === 'circulars' && 'ለወረዳዎች የተሰራጩ ሰርኩላሮችና መመሪያዎች'}
-              {currentView === 'revisions' && 'ማሻሻያ የታዘዘባቸው የወረዳ ሰነዶች'}
-            </h1>
+
+            {/* Right Column: Quick Key Metrics & Action Hub */}
+            <div className="flex flex-col lg:items-end justify-between gap-4 shrink-0 pt-4 lg:pt-0 border-t lg:border-t-0 border-white/10">
+              {/* Quick Metrics Cluster */}
+              <div className="grid grid-cols-3 gap-2 sm:gap-2.5 w-full lg:w-auto">
+                <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl px-3.5 py-2 text-center lg:text-left min-w-[95px] shadow-inner">
+                  <div className="text-[10px] font-bold text-amber-200/90 uppercase tracking-wider flex items-center justify-center lg:justify-start gap-1">
+                    <FileText className="w-3 h-3 text-amber-300" /> የወረዳ
+                  </div>
+                  <div className="text-base font-black text-white mt-0.5">
+                    {incomingWoredaDocs.length} <span className="text-[10px] font-normal text-slate-300">ሰነዶች</span>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl px-3.5 py-2 text-center lg:text-left min-w-[95px] shadow-inner">
+                  <div className="text-[10px] font-bold text-amber-200/90 uppercase tracking-wider flex items-center justify-center lg:justify-start gap-1">
+                    <span className="w-2 h-2 rounded-full bg-amber-400"></span> ግምገማ
+                  </div>
+                  <div className="text-base font-black text-white mt-0.5">
+                    {inReviewCount} <span className="text-[10px] font-normal text-slate-300">በሂደት</span>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl px-3.5 py-2 text-center lg:text-left min-w-[95px] shadow-inner">
+                  <div className="text-[10px] font-bold text-amber-200/90 uppercase tracking-wider flex items-center justify-center lg:justify-start gap-1">
+                    <span className="w-2 h-2 rounded-full bg-rose-400"></span> ማሻሻያ
+                  </div>
+                  <div className="text-base font-black text-white mt-0.5">
+                    {revisionCount} <span className="text-[10px] font-normal text-slate-300">የታዘዘ</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <div className="flex items-center gap-2.5 w-full lg:w-auto">
+                <button
+                  onClick={onOpenUpload}
+                  className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 text-slate-950 text-xs sm:text-[13px] font-black hover:shadow-lg hover:shadow-amber-400/30 hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-md group"
+                >
+                  <div className="w-5 h-5 rounded-lg bg-slate-950/15 text-slate-950 flex items-center justify-center group-hover:rotate-90 transition-transform duration-300">
+                    <Upload className="w-3.5 h-3.5 stroke-[2.5]" />
+                  </div>
+                  <span>+ ሰርኩላር / መመሪያ ላክ</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-
-        {/* Action Button: Disseminate Circular / Directive */}
-        <div className="flex items-center gap-2">
-          {currentView !== 'home' && (
+      ) : (
+        /* Subview Context Bar: Sleek Branded Header */
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#22177a] via-[#1a1163] to-[#11094b] text-white p-4 sm:p-5 shadow-md border border-[#3b2c9e]/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
             <button
               onClick={() => setCurrentView('home')}
-              className="text-xs font-bold px-3 py-1.5 border border-black hover:bg-neutral-100"
+              className="px-3.5 py-2 rounded-xl border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs font-bold hover:bg-white/20 transition-all flex items-center gap-1.5 shadow-xs"
+              title="ወደ ዋናው ተመለስ"
             >
-              ← ተመለስ
+              <ArrowLeft className="w-4 h-4 text-amber-300" />
+              <span>ተመለስ</span>
             </button>
-          )}
-          <button
-            onClick={onOpenUpload}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-black text-white text-xs font-bold hover:bg-neutral-800"
-          >
-            <Upload className="w-4 h-4" />
-            <span>ሰርኩላር / መመሪያ ላክ</span>
-          </button>
+
+            <div>
+              <div className="flex items-center gap-2 text-[11px] font-bold text-amber-300">
+                <span>የክ/ከተማ ዘርፍ ዴስክ</span>
+                <span className="text-white/40">•</span>
+                <span className="text-slate-300">{currentUser.name}</span>
+              </div>
+              <h1 className="text-base sm:text-lg font-black text-white tracking-tight mt-0.5">
+                {currentView === 'review' && 'የወረዳዎች ሰነድ መገምገሚያና ውሳኔ መስጫ ዴስክ'}
+                {currentView === 'cabinet' && `የ${sectorName} ማዕከላዊ ካቢኔት አቃፊዎች`}
+                {currentView === 'circulars' && 'ለወረዳዎች የተሰራጩ ሰርኩላሮችና መመሪያዎች'}
+                {currentView === 'revisions' && 'ማሻሻያ የታዘዘባቸው የወረዳ ሰነዶች'}
+              </h1>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={onOpenUpload}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 text-xs font-black hover:shadow-lg hover:shadow-amber-400/25 hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-xs"
+            >
+              <Upload className="w-4 h-4 stroke-[2.5]" />
+              <span>+ ሰርኩላር ላክ</span>
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* ========================================================================= */}
       {/* 1. HOME VIEW: Big, Spacious Action Tiles                                  */}
