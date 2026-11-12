@@ -29,6 +29,7 @@ import {
   ModernRankedProgressList 
 } from '../charts/ModernSaasCharts';
 import { ChartAreaInteractive } from '../charts/ChartAreaInteractive';
+import { ChartBarMultiple } from '../charts/ChartBarMultiple';
 
 interface SubcitySuperAdminDashboardProps {
   currentUser: User;
@@ -571,8 +572,11 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
               </div>
             </div>
 
-            {/* Interactive Area Chart */}
-            <ChartAreaInteractive />
+            {/* Visual Analytics Suite: Interactive Area Chart & Multiple Bar Chart */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-1">
+              <ChartAreaInteractive />
+              <ChartBarMultiple />
+            </div>
           </div>
 
           {/* Recent Uploads List: Modern SaaS Table */}
