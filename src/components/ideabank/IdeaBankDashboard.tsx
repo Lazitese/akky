@@ -108,35 +108,112 @@ export const IdeaBankDashboard: React.FC<IdeaBankDashboardProps> = ({
   return (
     <div className="space-y-6">
       
-      {/* Top Header Card: Modern SaaS Card */}
-      <div className="rounded-2xl border border-slate-200/90 bg-white/95 backdrop-blur-md p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-xs">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="w-2 h-2 rounded-full bg-[#22177a]"></span>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-              ሞጁል 2.4 • የእውቀትና ሀሳብ ማደራጃ
-            </span>
-          </div>
-          <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-[#22177a]/10 text-[#22177a] flex items-center justify-center">
-              <BookOpen className="w-4 h-4" />
-            </div>
-            <span>የሀሳብ ባንክ (ብልፅግና ፓርቲ የፅሁፍ ባንክ)</span>
-          </h1>
-          <p className="text-xs text-slate-500 mt-1.5 max-w-2xl leading-relaxed">
-            አመራሮችና አባላት በእውቀት ላይ የተመሰረተ የፖለቲካ፣ የኢኮኖሚና የመልካም አስተዳደር ሀሳቦችንና ፅሁፎችን የሚያጋሩበት እና የሚያነቡበት የጋራ ማደራጃ።
-          </p>
-        </div>
+      {/* Top Header Card: Redesigned Elevated SaaS Hero Card */}
+      <div className="relative overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-br from-white via-[#fcfbff] to-[#f4f3fb] p-6 lg:p-7 shadow-xs">
+        {/* Subtle Decorative Ambient Glows */}
+        <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-gradient-to-br from-[#22177a]/10 via-[#3a28a8]/5 to-amber-400/10 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-[#22177a]/5 blur-3xl pointer-events-none" />
 
-        {/* Action Button: Share New Idea */}
-        <div className="flex items-center gap-2">
-          <button
-            onClick={onOpenShareModal}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#22177a] via-[#1a1163] to-[#311b92] text-white text-xs font-bold hover:shadow-lg hover:shadow-[#22177a]/25 hover:-translate-y-0.5 transition-all shadow-xs shrink-0"
-          >
-            <Plus className="w-4 h-4 text-amber-400" />
-            <span>+ አዲስ ሀሳብ / ፅሁፍ አጋራ</span>
-          </button>
+        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          {/* Left Column: Module Meta & Header Information */}
+          <div className="flex-1">
+            {/* Live Status Module Pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#22177a]/10 border border-[#22177a]/15 text-[#22177a] mb-2.5">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+              </span>
+              <span className="text-[11px] font-extrabold uppercase tracking-wider">
+                ሞጁል 2.4 • የእውቀትና ሀሳብ ማደራጃ
+              </span>
+            </div>
+
+            {/* Main Title with Gradient Icon & Tag */}
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight flex flex-wrap items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#22177a] to-[#3a28a8] text-white flex items-center justify-center shadow-md shadow-[#22177a]/25 shrink-0">
+                <Sparkles className="w-5 h-5 text-amber-300" />
+              </div>
+              <span className="bg-gradient-to-r from-slate-900 via-slate-800 to-[#22177a] bg-clip-text text-transparent">
+                የሀሳብ ባንክ
+              </span>
+              <span className="text-[11px] font-black tracking-wider uppercase px-2.5 py-0.5 rounded-lg bg-amber-400/20 text-amber-900 border border-amber-400/40">
+                Idea Bank
+              </span>
+            </h1>
+
+            {/* Description Subtitle */}
+            <p className="text-xs sm:text-[13px] text-slate-600 mt-2 max-w-2xl leading-relaxed font-normal">
+              አመራሮችና አባላት በእውቀት ላይ የተመሰረተ የፖለቲካ፣ የኢኮኖሚና የመልካም አስተዳደር ሀሳቦችንና ፅሁፎችን የሚያጋሩበት እና የሚያነቡበት የጋራ ማደራጃ።
+            </p>
+
+            {/* Feature Capability Badges */}
+            <div className="flex flex-wrap items-center gap-2 mt-3.5">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold bg-white/95 text-slate-700 border border-slate-200/90 px-3 py-1 rounded-full shadow-2xs">
+                <Layers className="w-3.5 h-3.5 text-[#22177a]" /> 5 ዋና ዋና የፖሊሲ ዘርፎች
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold bg-white/95 text-slate-700 border border-slate-200/90 px-3 py-1 rounded-full shadow-2xs">
+                <MessageSquare className="w-3.5 h-3.5 text-emerald-600" /> ውይይትና የጋራ ግብረ-መልስ
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold bg-white/95 text-slate-700 border border-slate-200/90 px-3 py-1 rounded-full shadow-2xs">
+                <TrendingUp className="w-3.5 h-3.5 text-amber-600" /> ለውሳኔ ሰጪዎች ግብዓት
+              </span>
+            </div>
+          </div>
+
+          {/* Right Column: Quick Key Metrics & Action Hub */}
+          <div className="flex flex-col lg:items-end justify-between gap-4 shrink-0 pt-4 lg:pt-0 border-t lg:border-t-0 border-slate-200/80">
+            {/* Quick Metrics Cluster */}
+            <div className="grid grid-cols-3 gap-2 sm:gap-2.5 w-full lg:w-auto">
+              <div className="bg-white/95 backdrop-blur-xs border border-slate-200/90 rounded-2xl px-3.5 py-2 text-center lg:text-left min-w-[95px] shadow-2xs">
+                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-center lg:justify-start gap-1">
+                  <BookOpen className="w-3 h-3 text-[#22177a]" /> ፅሁፎች
+                </div>
+                <div className="text-base font-black text-slate-900 mt-0.5">
+                  {ideas.length} <span className="text-[10px] font-normal text-slate-500">ጥናቶች</span>
+                </div>
+              </div>
+
+              <div className="bg-white/95 backdrop-blur-xs border border-slate-200/90 rounded-2xl px-3.5 py-2 text-center lg:text-left min-w-[95px] shadow-2xs">
+                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-center lg:justify-start gap-1">
+                  <MessageSquare className="w-3 h-3 text-emerald-600" /> አስተያየቶች
+                </div>
+                <div className="text-base font-black text-slate-900 mt-0.5">
+                  {totalComments} <span className="text-[10px] font-normal text-slate-500">ሀሳቦች</span>
+                </div>
+              </div>
+
+              <div className="bg-white/95 backdrop-blur-xs border border-slate-200/90 rounded-2xl px-3.5 py-2 text-center lg:text-left min-w-[95px] shadow-2xs">
+                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-center lg:justify-start gap-1">
+                  <Eye className="w-3 h-3 text-purple-600" /> እይታዎች
+                </div>
+                <div className="text-base font-black text-slate-900 mt-0.5">
+                  {totalViews.toLocaleString()} <span className="text-[10px] font-normal text-slate-500">ጊዜ</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex items-center gap-2.5 w-full lg:w-auto">
+              {selectedCategory !== null && (
+                <button
+                  onClick={() => setSelectedCategory(null)}
+                  className="flex-1 lg:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 text-xs font-bold hover:bg-slate-50 transition-all shadow-xs"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>ወደ ማውጫ</span>
+                </button>
+              )}
+              <button
+                onClick={onOpenShareModal}
+                className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#22177a] via-[#1a1163] to-[#311b92] text-white text-xs sm:text-[13px] font-bold hover:shadow-lg hover:shadow-[#22177a]/30 hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-sm group"
+              >
+                <div className="w-5 h-5 rounded-lg bg-amber-400/20 text-amber-400 flex items-center justify-center group-hover:rotate-90 transition-transform duration-300">
+                  <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
+                </div>
+                <span>+ አዲስ ሀሳብ / ፅሁፍ አጋራ</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
