@@ -14,6 +14,7 @@ import { DocumentItem, Sector } from '../../types/dms';
 import { User } from '../../types/auth';
 import { PartyFlameSwoosh } from '../brand/PartyFlameAccent';
 import { ChartPieDonutActive } from '../charts/ChartPieDonutActive';
+import { ChartRadialGrid } from '../charts/ChartRadialGrid';
 
 interface WoredaSuperAdminDashboardProps {
   currentUser: User;
@@ -257,9 +258,10 @@ export const WoredaSuperAdminDashboard: React.FC<WoredaSuperAdminDashboardProps>
             </div>
           </div>
 
-          {/* Visual Analytics: Interactive Donut Chart */}
-          <div className="pt-2">
+          {/* Visual Analytics: Mixed 2 Charts */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-2">
             <ChartPieDonutActive />
+            <ChartRadialGrid />
           </div>
         </div>
       )}

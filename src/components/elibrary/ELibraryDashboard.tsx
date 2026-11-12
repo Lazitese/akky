@@ -25,7 +25,8 @@ import {
 import { LibraryCategory, LibraryItem, MediaType } from '../../types/elibrary';
 import { User as AuthUser } from '../../types/auth';
 import { PartyFlameSwoosh, PartyMottoBanner } from '../brand/PartyFlameAccent';
-import { ModernBarChart, ModernDonutChart } from '../charts/ModernSaasCharts';
+import { ChartRadialGrid } from '../charts/ChartRadialGrid';
+import { ChartAreaInteractive } from '../charts/ChartAreaInteractive';
 
 interface ELibraryDashboardProps {
   currentUser: AuthUser;
@@ -374,83 +375,32 @@ export const ELibraryDashboard: React.FC<ELibraryDashboardProps> = ({
               </div>
             </div>
 
-            {/* Charts Grid: Recharts Donut on Left, Media Reach on Right */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
-              {/* Chart 1: Modern Interactive Donut Chart of Media Formats */}
-              <div className="p-4 rounded-xl bg-slate-50/60 border border-slate-200/90 flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-extrabold text-xs text-slate-800 tracking-tight">የሚዲያ ቅርጸቶች ስርጭት</h4>
-                  <span className="text-[10px] text-slate-500 font-mono">4 ቅርጸቶች</span>
-                </div>
+            {/* Visual Analytics Suite: Mixed 2 Charts */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-2">
+              <ChartRadialGrid
+                title="የሚዲያ ቅርጸቶች ስርጭት"
+                description="የፒዲኤፍ ሰነዶች፣ ቪዲዮ፣ ኦዲዮና ፎቶ አልበሞች"
+                data={[
+                  { sector: 'pdf', label: 'ሰነድ / PDF', count: pdfCount || 24, fill: '#22177a' },
+                  { sector: 'video', label: 'ቪዲዮ', count: videoCount || 12, fill: '#3b82f6' },
+                  { sector: 'audio', label: 'ኦዲዮ', count: audioCount || 8, fill: '#f59e0b' },
+                  { sector: 'images', label: 'ፎቶ አልበም', count: imageCount || 15, fill: '#10b981' },
+                ]}
+                config={{
+                  count: { label: 'የሚዲያዎች ብዛት' },
+                  pdf: { label: 'ሰነድ / PDF', color: '#22177a' },
+                  video: { label: 'ቪዲዮ', color: '#3b82f6' },
+                  audio: { label: 'ኦዲዮ', color: '#f59e0b' },
+                  images: { label: 'ፎቶ አልበም', color: '#10b981' },
+                }}
+                footerTrend="የዲጂታል ሚዲያዎች ምደባ በ 5.2% ጨምሯል"
+                footerSubtitle="ያለፉት 6 ወራት የሚዲያ ቅርጸቶች ስርጭት"
+              />
 
-                <ModernDonutChart
-                  data={[
-                    { name: 'PDF / ሰነድ', value: pdfCount, color: '#22177a' },
-                    { name: 'ቪዲዮዎች', value: videoCount, color: '#3b82f6' },
-                    { name: 'ኦዲዮዎች', value: audioCount, color: '#f59e0b' },
-                    { name: 'ፎቶ አልበም', value: imageCount, color: '#10b981' },
-                  ]}
-                  height={190}
-                  centerLabel="ሚዲያዎች"
-                  centerCount={items.length}
-                />
-
-                {/* Minimal Sleek Legend Pills */}
-                <div className="flex flex-wrap items-center justify-center gap-2 pt-2 text-[10.5px]">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700 font-medium">
-                    <span className="w-2 h-2 rounded-full bg-[#22177a]"></span> PDF / ሰነድ ({pdfCount})
-                  </span>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700 font-medium">
-                    <span className="w-2 h-2 rounded-full bg-[#3b82f6]"></span> ቪዲዮዎች ({videoCount})
-                  </span>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700 font-medium">
-                    <span className="w-2 h-2 rounded-full bg-[#f59e0b]"></span> ኦዲዮዎች ({audioCount})
-                  </span>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700 font-medium">
-                    <span className="w-2 h-2 rounded-full bg-[#10b981]"></span> ፎቶ አልበም ({imageCount})
-                  </span>
-                </div>
-              </div>
-
-              {/* Chart 2: Modern Digital Capacity & Offline Availability */}
-              <div className="p-4 rounded-xl bg-slate-50/60 border border-slate-200/90 space-y-4 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between text-xs font-extrabold text-slate-800 mb-1">
-                    <span>የዲጂታል ተደራሽነትና የመረጃ ቋት ጥራት</span>
-                    <BarChart3 className="w-4 h-4 text-[#22177a]" />
-                  </div>
-                  <p className="text-[11px] text-slate-500">
-                    አመራሩና አባሉ በሞባይልና ኮምፒውተር ያለ ገደብ የሚያገኘው ማህደር።
-                  </p>
-                </div>
-
-                <div className="space-y-3 text-xs">
-                  <div>
-                    <div className="flex justify-between text-[11px] font-bold text-slate-700 mb-1">
-                      <span>የማውረድ ምጣኔ</span>
-                      <span className="font-mono text-[#22177a]">በቀን ~180 ውርዶች</span>
-                    </div>
-                    <div className="h-2.5 w-full bg-slate-200 rounded-full overflow-hidden">
-                      <div style={{ width: '92%' }} className="h-full bg-gradient-to-r from-blue-600 to-[#22177a] rounded-full transition-all duration-1000" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-[11px] font-bold text-slate-700 mb-1">
-                      <span>የሞባይልና ከመስመር ውጭ ተስማሚነት</span>
-                      <span className="font-mono text-emerald-600">100% ዝግጁ</span>
-                    </div>
-                    <div className="h-2.5 w-full bg-slate-200 rounded-full overflow-hidden">
-                      <div style={{ width: '100%' }} className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full transition-all duration-1000" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-slate-200/80 flex items-center justify-between text-[10.5px] text-slate-600 font-medium">
-                  <span>በብዛት የተነበበው፦ <strong className="text-slate-800">የብልፅግና መተዳደሪያ ደንብ</strong></span>
-                  <span className="text-[#22177a] font-bold">ከፍተኛ ፍላጎት</span>
-                </div>
-              </div>
+              <ChartAreaInteractive
+                title="የንባብና የዕውቀት ዝውውር ፍሰት"
+                description="በሞባይልና ኮምፒውተር የወረዱ ይፋዊ መመሪያዎችና ሰነዶች"
+              />
             </div>
           </div>
 

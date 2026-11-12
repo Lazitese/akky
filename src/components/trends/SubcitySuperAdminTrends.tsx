@@ -19,7 +19,8 @@ import { TrendCategory, TrendAnalysisType, TrendItem } from '../../types/trends'
 import { Sector, Woreda } from '../../types/dms';
 import { User } from '../../types/auth';
 import { PartyFlameSwoosh, PartyMottoBanner } from '../brand/PartyFlameAccent';
-import { ModernBarChart, ModernDonutChart } from '../charts/ModernSaasCharts';
+import { ChartPieDonutActive } from '../charts/ChartPieDonutActive';
+import { ChartRadialGrid } from '../charts/ChartRadialGrid';
 
 interface SubcitySuperAdminTrendsProps {
   currentUser: User;
@@ -452,85 +453,31 @@ export const SubcitySuperAdminTrends: React.FC<SubcitySuperAdminTrendsProps> = (
               </div>
             </div>
 
-            {/* Charts Grid: Recharts Modern Donut on Left, Reporting Pulse on Right */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
-              {/* Chart 1: Modern Interactive Recharts Sentiment Donut */}
-              <div className="p-4 rounded-xl bg-slate-50/60 border border-slate-200/90 flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-bold text-xs text-slate-800 tracking-tight">የዝንባሌዎች የክብ ቻርት</h4>
-                  <span className="text-[10px] text-slate-500 font-mono">ስሜት ትንተና</span>
-                </div>
-
-                <ModernDonutChart
-                  data={[
-                    { name: 'አዎንታዊ', value: positiveCount, color: '#10b981' },
-                    { name: 'ትኩረት የሚሻ', value: urgentCount, color: '#e11d48' },
-                    { name: 'አሉታዊ', value: negativeCount, color: '#f59e0b' },
-                  ]}
-                  height={190}
-                  centerLabel="አዝማሚያዎች"
-                  centerCount={totalTrends}
-                />
-
-                {/* Minimal Sleek Legend Pills */}
-                <div className="flex flex-wrap items-center justify-center gap-2 pt-2 text-[10.5px]">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-emerald-800 font-medium">
-                    <span className="w-2 h-2 rounded-full bg-[#10b981]"></span> አዎንታዊ ({positiveCount})
-                  </span>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-rose-800 font-medium">
-                    <span className="w-2 h-2 rounded-full bg-[#e11d48]"></span> ትኩረት የሚሻ ({urgentCount})
-                  </span>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-amber-800 font-medium">
-                    <span className="w-2 h-2 rounded-full bg-[#f59e0b]"></span> አሉታዊ ({negativeCount})
-                  </span>
-                </div>
-              </div>
-
-              {/* Chart 2: Modern Reporting Activity & Leadership Response */}
-              <div className="p-4 rounded-xl bg-slate-50/60 border border-slate-200/90 space-y-4 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between text-xs font-extrabold text-slate-800 mb-1">
-                    <span>የመረጃ ፍሰትና የአመራር ምላሽ</span>
-                    <Activity className="w-4 h-4 text-[#22177a]" />
-                  </div>
-                  <p className="text-[11px] text-slate-500">
-                    ከክፍለ ከተማው 5 ዘርፎችና ከ14ቱ ወረዳዎች የተላኩ ትንተናዎች የመረጃ ፍሰት ሁኔታ።
-                  </p>
-                </div>
-
-                <div className="space-y-3 text-xs">
-                  <div>
-                    <div className="flex justify-between text-[11px] font-bold text-slate-700 mb-1">
-                      <span>የአመራር አቅጣጫ የተሰጠባቸው</span>
-                      <span className="font-mono text-[#22177a]">{directivesCount} / {totalTrends}</span>
-                    </div>
-                    <div className="h-2.5 w-full bg-slate-200 rounded-full overflow-hidden">
-                      <div
-                        style={{ width: `${(directivesCount / Math.max(1, totalTrends)) * 100}%` }}
-                        className="h-full bg-gradient-to-r from-blue-600 to-[#22177a] rounded-full transition-all duration-1000"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-[11px] font-bold text-slate-700 mb-1">
-                      <span>የፎቶ ማስረጃ የተያያዘባቸው</span>
-                      <span className="font-mono text-amber-600">{photosCount} / {totalTrends}</span>
-                    </div>
-                    <div className="h-2.5 w-full bg-slate-200 rounded-full overflow-hidden">
-                      <div
-                        style={{ width: `${(photosCount / Math.max(1, totalTrends)) * 100}%` }}
-                        className="h-full bg-gradient-to-r from-amber-400 to-amber-600 rounded-full transition-all duration-1000"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-slate-200/80 flex items-center justify-between text-[10.5px] text-slate-600 font-medium">
-                  <span>ሪፖርት ያደረጉ፦ <strong className="text-slate-800">ወረዳ 01፣ 04፣ 02</strong></span>
-                  <span className="text-[#22177a] font-bold">14 ወረዳዎች በክትትል</span>
-                </div>
-              </div>
+            {/* Visual Analytics Suite: Mixed 2 Charts */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-2">
+              <ChartPieDonutActive
+                title="የአዝማሚያዎችና ስሜት ስርጭት"
+                description="አዎንታዊ፣ ትኩረት የሚሻና አሉታዊ አዝማሚያዎች ምጣኔ"
+                data={[
+                  { category: 'positive', count: positiveCount, fill: '#10b981' },
+                  { category: 'urgent', count: urgentCount, fill: '#ef4444' },
+                  { category: 'negative', count: negativeCount, fill: '#f59e0b' },
+                ]}
+                config={{
+                  count: { label: 'የአዝማሚያዎች ብዛት' },
+                  positive: { label: 'አዎንታዊ', color: '#10b981' },
+                  urgent: { label: 'ትኩረት የሚሻ', color: '#ef4444' },
+                  negative: { label: 'አሉታዊ', color: '#f59e0b' },
+                }}
+                footerTrend="የአዝማሚያዎች ክትትልና ትንተና"
+                footerSubtitle="ከ14ቱ ወረዳዎች የተሰበሰቡ ወቅታዊ መረጃዎች"
+              />
+              <ChartRadialGrid
+                title="የዘርፎች አዝማሚያ አፈጻጸም"
+                description="በ5ቱ ማዕከላዊ ዘርፎች የቀረቡ ወቅታዊ ትንተናዎች"
+                footerTrend="የትንተናዎች ፍሰት በ 5.2% ጨምሯል"
+                footerSubtitle="ያለፉት 6 ወራት የዘርፎች ሁኔታ ማጠቃለያ"
+              />
             </div>
           </div>
 

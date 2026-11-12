@@ -136,10 +136,21 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function ChartAreaInteractive() {
+export function ChartAreaInteractive({
+  title = "የሰነድ ፍሰት በጊዜ ሂደት",
+  description = "ያለፉት 3 ወራት የማዕከልና የወረዳዎች ሰነዶች የገቢ ንጽጽር",
+  data = chartData,
+  config = chartConfig,
+}: {
+  title?: string
+  description?: string
+  data?: any[]
+  config?: ChartConfig
+} = {}) {
   const [timeRange, setTimeRange] = React.useState("90d")
+  const activeConfig = config || chartConfig
 
-  const filteredData = chartData.filter((item) => {
+  const filteredData = (data || chartData).filter((item) => {
     const date = new Date(item.date)
     const referenceDate = new Date("2024-06-30")
     let daysToSubtract = 90
@@ -157,9 +168,9 @@ export function ChartAreaInteractive() {
     <Card className="pt-0">
       <CardHeader className="flex items-center gap-2 space-y-0 border-b border-slate-100 py-5 sm:flex-row">
         <div className="grid flex-1 gap-1">
-          <CardTitle>የሰነድ ፍሰት በጊዜ ሂደት</CardTitle>
+          <CardTitle>{title}</CardTitle>
           <CardDescription>
-            ያለፉት 3 ወራት የማዕከልና የወረዳዎች ሰነዶች የገቢ ንጽጽር
+            {description}
           </CardDescription>
         </div>
         <Select value={timeRange} onValueChange={setTimeRange}>
@@ -184,7 +195,7 @@ export function ChartAreaInteractive() {
       </CardHeader>
       <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
         <ChartContainer
-          config={chartConfig}
+          config={activeConfig}
           className="aspect-auto h-[250px] w-full"
         >
           <AreaChart data={filteredData}>

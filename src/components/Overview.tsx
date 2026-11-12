@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { DocumentItem } from '../types/dms';
 import { ChartRadialGrid } from './charts/ChartRadialGrid';
+import { ChartBarMultiple } from './charts/ChartBarMultiple';
 
 interface OverviewProps {
   documents: DocumentItem[];
@@ -165,8 +166,9 @@ export const Overview: React.FC<OverviewProps> = ({
         </div>
       </div>
 
-      {/* Visual Analytics: Radial Bar Chart with Polar Circle Grid */}
-      <div className="pt-2">
+      {/* Visual Analytics: Mixed 2 Charts */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-2">
+        <ChartBarMultiple />
         <ChartRadialGrid />
       </div>
     </div>

@@ -15,6 +15,7 @@ import { DocumentItem, DocumentCategory } from '../../types/dms';
 import { User } from '../../types/auth';
 import { PartyFlameSwoosh } from '../brand/PartyFlameAccent';
 import { ChartBarMultiple } from '../charts/ChartBarMultiple';
+import { ChartPieDonutActive } from '../charts/ChartPieDonutActive';
 
 interface SubcitySectorDashboardProps {
   currentUser: User;
@@ -254,9 +255,10 @@ export const SubcitySectorDashboard: React.FC<SubcitySectorDashboardProps> = ({
             </div>
           </div>
 
-          {/* Visual Analytics: Multiple Bar Chart */}
-          <div className="pt-2">
+          {/* Visual Analytics: Mixed 2 Charts */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-2">
             <ChartBarMultiple />
+            <ChartPieDonutActive />
           </div>
         </div>
       )}

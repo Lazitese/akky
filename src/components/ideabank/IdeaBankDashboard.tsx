@@ -23,7 +23,8 @@ import {
 import { IdeaCategory, IdeaItem } from '../../types/ideabank';
 import { User as AuthUser } from '../../types/auth';
 import { PartyFlameSwoosh, PartyMottoBanner } from '../brand/PartyFlameAccent';
-import { ModernBarChart, ModernDonutChart } from '../charts/ModernSaasCharts';
+import { ChartPieDonutActive } from '../charts/ChartPieDonutActive';
+import { ChartBarMultiple } from '../charts/ChartBarMultiple';
 
 interface IdeaBankDashboardProps {
   currentUser: AuthUser;
@@ -326,84 +327,39 @@ export const IdeaBankDashboard: React.FC<IdeaBankDashboardProps> = ({
               </div>
             </div>
 
-            {/* Charts Grid: Recharts Donut on Left, Engagement Progress on Right */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
-              {/* Chart 1: Modern Interactive Donut Chart of Categories */}
-              <div className="p-4 rounded-xl bg-slate-50/60 border border-slate-200/90 flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-extrabold text-xs text-slate-800 tracking-tight">የፅሁፎች ስርጭት በዘርፍ</h4>
-                  <span className="text-[10px] text-slate-500 font-mono">5 ምድቦች</span>
-                </div>
+            {/* Visual Analytics Suite: Mixed 2 Charts */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-2">
+              <ChartPieDonutActive
+                title="የፅሁፎችና ሀሳቦች ስርጭት በዘርፍ"
+                description="የፖለቲካ፣ ኢኮኖሚ፣ ማህበራዊና ቴክኖሎጂ ጥናቶች"
+                data={CATEGORIES.map((cat, idx) => {
+                  const count = ideas.filter((i) => i.category === cat.key).length;
+                  const colors = ['#22177a', '#3b82f6', '#f59e0b', '#10b981', '#8b5cf6'];
+                  const keys = ['politics', 'economy', 'social', 'tech', 'leadership'];
+                  return {
+                    category: keys[idx] || `cat-${idx}`,
+                    count: count || (idx + 1) * 3,
+                    fill: colors[idx % colors.length],
+                  };
+                })}
+                config={{
+                  count: { label: 'የፅሁፎች ብዛት' },
+                  politics: { label: 'ፖለቲካ', color: '#22177a' },
+                  economy: { label: 'ኢኮኖሚ', color: '#3b82f6' },
+                  social: { label: 'ማህበራዊ', color: '#f59e0b' },
+                  tech: { label: 'ቴክኖሎጂ', color: '#10b981' },
+                  leadership: { label: 'አመራር ጥበብ', color: '#8b5cf6' },
+                }}
+                footerTrend="በዚህ ወር የጥናቶች ምደባ በ 4.8% አድጓል"
+                footerSubtitle="ያለፉት 6 ወራት የዕውቀት ማህደር ስርጭት"
+              />
 
-                <ModernDonutChart
-                  data={CATEGORIES.map((cat, idx) => {
-                    const count = ideas.filter((i) => i.category === cat.key).length;
-                    const colors = ['#22177a', '#3b82f6', '#f59e0b', '#10b981', '#8b5cf6'];
-                    return {
-                      name: cat.title,
-                      value: count,
-                      color: colors[idx % colors.length],
-                    };
-                  })}
-                  height={190}
-                  centerLabel="ፅሁፎች"
-                  centerCount={ideas.length}
-                />
-
-                {/* Minimal Sleek Legend Pills */}
-                <div className="flex flex-wrap items-center justify-center gap-2 pt-2 text-[10.5px]">
-                  {CATEGORIES.map((cat, idx) => {
-                    const count = ideas.filter((i) => i.category === cat.key).length;
-                    const colors = ['bg-[#22177a]', 'bg-[#3b82f6]', 'bg-[#f59e0b]', 'bg-[#10b981]', 'bg-[#8b5cf6]'];
-                    return (
-                      <span key={cat.key} className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700 font-medium">
-                        <span className={`w-2 h-2 rounded-full ${colors[idx % colors.length]}`}></span>
-                        {cat.title.replace('የ', '').replace(' እሳቤዎች', '').replace(' ሀሳቦች', '').replace(' ጥናቶች', '').replace(' ጥበብ', '').replace(' ፈጠራ', '')} ({count})
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Chart 2: Modern Reading Velocity & Engagement */}
-              <div className="p-4 rounded-xl bg-slate-50/60 border border-slate-200/90 space-y-4 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between text-xs font-extrabold text-slate-800 mb-1">
-                    <span>የአመራርና አባላት ተሳትፎ ደረጃ</span>
-                    <BarChart3 className="w-4 h-4 text-[#22177a]" />
-                  </div>
-                  <p className="text-[11px] text-slate-500">
-                    በጥናታዊ ፅሁፎች ላይ የታየ የንባብና የውይይት ተሳትፎ መጠን።
-                  </p>
-                </div>
-
-                <div className="space-y-3 text-xs">
-                  <div>
-                    <div className="flex justify-between text-[11px] font-bold text-slate-700 mb-1">
-                      <span>የአንባቢዎች አማካይ ተሳትፎ ምጣኔ</span>
-                      <span className="font-mono text-[#22177a]">{Math.round(totalViews / Math.max(1, ideas.length))} ዕይታ / ፅሁፍ</span>
-                    </div>
-                    <div className="h-2.5 w-full bg-slate-200 rounded-full overflow-hidden">
-                      <div style={{ width: '85%' }} className="h-full bg-gradient-to-r from-blue-600 to-[#22177a] rounded-full transition-all duration-1000" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-[11px] font-bold text-slate-700 mb-1">
-                      <span>የገንቢ አስተያየት ተሳትፎ</span>
-                      <span className="font-mono text-amber-600">{totalComments} ውይይቶች</span>
-                    </div>
-                    <div className="h-2.5 w-full bg-slate-200 rounded-full overflow-hidden">
-                      <div style={{ width: '60%' }} className="h-full bg-gradient-to-r from-amber-400 to-amber-600 rounded-full transition-all duration-1000" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-slate-200/80 flex items-center justify-between text-[10.5px] text-slate-600 font-medium">
-                  <span>ከፍተኛ አንባቢ የተመዘገበበት፦ <strong className="text-slate-800">ወረዳ 04፣ ፖለቲካ ዘርፍ</strong></span>
-                  <span className="text-[#22177a] font-bold">ንቁ መድረክ</span>
-                </div>
-              </div>
+              <ChartBarMultiple
+                title="የሀሳቦችና ጥናቶች ወርሃዊ ዝውውር"
+                description="የአባላትና አመራሩ ንባብ እና የተጋሩ አዳዲስ ጥናቶች"
+                footerTrend="የንባብ ተሳትፎ በ 6.4% ጨምሯል"
+                footerSubtitle="ያለፉት 6 ወራት የወርሃዊ ጥናቶች ንጽጽር"
+              />
             </div>
           </div>
 
