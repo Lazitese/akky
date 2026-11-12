@@ -31,6 +31,7 @@ import {
 import { ChartAreaInteractive } from '../charts/ChartAreaInteractive';
 import { ChartBarMultiple } from '../charts/ChartBarMultiple';
 import { ChartPieDonutActive } from '../charts/ChartPieDonutActive';
+import { ChartRadialGrid } from '../charts/ChartRadialGrid';
 
 interface SubcitySuperAdminDashboardProps {
   currentUser: User;
@@ -576,10 +577,11 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
             {/* Interactive Area Chart */}
             <ChartAreaInteractive />
 
-            {/* Visual Analytics Suite: Multiple Bar Chart & Donut Active Sector */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-1">
+            {/* Visual Analytics Suite: Multiple Bar Chart, Donut Active Sector & Radial Polar Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-1">
               <ChartBarMultiple />
               <ChartPieDonutActive />
+              <ChartRadialGrid />
             </div>
           </div>
 
