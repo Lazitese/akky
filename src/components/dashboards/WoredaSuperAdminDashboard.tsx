@@ -13,6 +13,7 @@ import {
 import { DocumentItem, Sector } from '../../types/dms';
 import { User } from '../../types/auth';
 import { PartyFlameSwoosh } from '../brand/PartyFlameAccent';
+import { ChartPieDonutActive } from '../charts/ChartPieDonutActive';
 
 interface WoredaSuperAdminDashboardProps {
   currentUser: User;
@@ -254,6 +255,11 @@ export const WoredaSuperAdminDashboard: React.FC<WoredaSuperAdminDashboardProps>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
+          </div>
+
+          {/* Visual Analytics: Interactive Donut Chart */}
+          <div className="pt-2">
+            <ChartPieDonutActive />
           </div>
         </div>
       )}

@@ -10,6 +10,7 @@ import {
   ShieldCheck 
 } from 'lucide-react';
 import { DocumentItem } from '../types/dms';
+import { ChartRadialGrid } from './charts/ChartRadialGrid';
 
 interface OverviewProps {
   documents: DocumentItem[];
@@ -162,6 +163,11 @@ export const Overview: React.FC<OverviewProps> = ({
           </div>
           <ArrowRight className="w-4 h-4 text-black" />
         </div>
+      </div>
+
+      {/* Visual Analytics: Radial Bar Chart with Polar Circle Grid */}
+      <div className="pt-2">
+        <ChartRadialGrid />
       </div>
     </div>
   );

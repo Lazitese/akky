@@ -23,9 +23,6 @@ import { DocumentCategory, DocumentItem, Sector, Woreda } from '../../types/dms'
 import { User } from '../../types/auth';
 import { PartyFlameSwoosh, PartyMottoBanner } from '../brand/PartyFlameAccent';
 import { ChartAreaInteractive } from '../charts/ChartAreaInteractive';
-import { ChartBarMultiple } from '../charts/ChartBarMultiple';
-import { ChartPieDonutActive } from '../charts/ChartPieDonutActive';
-import { ChartRadialGrid } from '../charts/ChartRadialGrid';
 
 interface SubcitySuperAdminDashboardProps {
   currentUser: User;
@@ -468,13 +465,6 @@ export const SubcitySuperAdminDashboard: React.FC<SubcitySuperAdminDashboardProp
 
             {/* Interactive Area Chart */}
             <ChartAreaInteractive />
-
-            {/* Visual Analytics Suite: Multiple Bar Chart, Donut Active Sector & Radial Polar Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-1">
-              <ChartBarMultiple />
-              <ChartPieDonutActive />
-              <ChartRadialGrid />
-            </div>
           </div>
 
           {/* Recent Uploads List: Modern SaaS Table */}
